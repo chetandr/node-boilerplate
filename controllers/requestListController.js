@@ -25,8 +25,12 @@ exports.create_request_list = async function(req, res) {
 
     console.log('\n in requestListController.js : create_request_list() : start : ')
 
-    let result = await requestListService.create(req.body)
-    res.status(201).send(result)
+    try{
+        let result = await requestListService.create(req.body)
+        res.status(201).send(result)
+    }catch(error){
+        res.status(400).send(error)
+    }
 }
 
 // Define update request list handler.
