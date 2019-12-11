@@ -11,23 +11,28 @@
 let express = require('express');
 let app = express();
 let bodyParser = require('body-parser');
-// Get config details from .env file
+const helmet = require('helmet')
+// Get config details from .env file and set to process.env
 require('dotenv').config()
 
 /************************* Require files *************************/
 let requestList = require("./routes/requestListRoute")
 
 /************************* Global variable *************************/
-let port = process.env.port || 3001
 
+let port = process.env.port || 3001
+global.logger = require("./services/loggerService").logger
 
 /********************* Define and call middleware ******************/
 
-// parse application/x-www-form-urlencoded
+// to parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
 
-// parse application/json
+// to parse application/json
 app.use(bodyParser.json())
+
+// to secure your Express apps by setting various HTTP headers
+app.use(helmet())
 
 /************************* Define routes *************************/
 
