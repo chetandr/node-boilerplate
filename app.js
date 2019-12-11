@@ -22,6 +22,7 @@ let requestList = require("./routes/requestListRoute")
 
 let port = process.env.port || 3001
 global.logger = require("./services/loggerService").logger
+let logger = global.logger
 
 /********************* Define and call middleware ******************/
 
@@ -39,6 +40,7 @@ app.use(helmet())
 // Define root route
 app.get('/', function (req, res) {
     console.log("\n in app.js : root route : ", req.url)
+    logger.info(`in app.js : root route : ${req.url}`)
     res.send("Welcome to Node boilerplate!!!")
 });
 
