@@ -1,14 +1,17 @@
 
-import { UserDao } from '@daos';
 import { logger } from '@shared';
-import { Request, Response, Router, Express } from 'express';
 import { BAD_REQUEST, CREATED, OK } from 'http-status-codes';
 import { paramMissingError } from '@shared';
 import { ParamsDictionary } from 'express-serve-static-core';
 
+import {getRepository} from "typeorm";
+import {NextFunction, Request, Response, Router, Express} from "express";
+import {User} from "../entity/User";
+
 // Init shared
 const router = Router();
-const userDao = new UserDao();
+// const userDao = new UserDao();
+//const userRepository = getRepository(User);
 
 /******************************************************************************
  *                      Get All Users - "GET /api/users/all"
@@ -16,7 +19,7 @@ const userDao = new UserDao();
 
 router.get('/all', async (req: Request, res: Response) => {
     try {
-        const users = await userDao.getAll();
+        const users = await getRepository(User).find();
         return res.status(OK).json({users});
     } catch (err) {
         logger.error(err.message, err);
@@ -31,7 +34,7 @@ router.get('/all', async (req: Request, res: Response) => {
  ******************************************************************************/
 
 router.post('/add', async (req: Request, res: Response) => {
-    try {
+   /*  try {
         const { user } = req.body;
         if (!user) {
             return res.status(BAD_REQUEST).json({
@@ -45,7 +48,7 @@ router.post('/add', async (req: Request, res: Response) => {
         return res.status(BAD_REQUEST).json({
             error: err.message,
         });
-    }
+    } */
 });
 
 /******************************************************************************
@@ -53,7 +56,7 @@ router.post('/add', async (req: Request, res: Response) => {
  ******************************************************************************/
 
 router.put('/update', async (req: Request, res: Response) => {
-    try {
+    /* try {
         const { user } = req.body;
         if (!user) {
             return res.status(BAD_REQUEST).json({
@@ -68,7 +71,7 @@ router.put('/update', async (req: Request, res: Response) => {
         return res.status(BAD_REQUEST).json({
             error: err.message,
         });
-    }
+    } */
 });
 
 /******************************************************************************
@@ -76,7 +79,7 @@ router.put('/update', async (req: Request, res: Response) => {
  ******************************************************************************/
 
 router.delete('/delete/:id', async (req: Request, res: Response) => {
-    try {
+    /* try {
         const { id } = req.params as ParamsDictionary;
         await userDao.delete(Number(id));
         return res.status(OK).end();
@@ -85,7 +88,7 @@ router.delete('/delete/:id', async (req: Request, res: Response) => {
         return res.status(BAD_REQUEST).json({
             error: err.message,
         });
-    }
+    } */
 });
 
 /******************************************************************************

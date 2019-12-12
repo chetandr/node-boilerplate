@@ -1,4 +1,4 @@
-import app from '@server';
+import app from 'src/index';
 import supertest from 'supertest';
 
 import { BAD_REQUEST, CREATED, OK } from 'http-status-codes';
