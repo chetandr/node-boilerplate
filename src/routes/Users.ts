@@ -11,7 +11,7 @@ import {User} from "../entity/User";
 // Init shared
 const router = Router();
 // const userDao = new UserDao();
-//const userRepository = getRepository(User);
+
 
 /******************************************************************************
  *                      Get All Users - "GET /api/users/all"
@@ -19,7 +19,8 @@ const router = Router();
 
 router.get('/all', async (req: Request, res: Response) => {
     try {
-        const users = await getRepository(User).find();
+        const userRepository = getRepository(User);
+        const users = await userRepository.find();
         return res.status(OK).json({users});
     } catch (err) {
         logger.error(err.message, err);
@@ -34,44 +35,57 @@ router.get('/all', async (req: Request, res: Response) => {
  ******************************************************************************/
 
 router.post('/add', async (req: Request, res: Response) => {
-   /*  try {
+    try {
+        const userRepository = getRepository(User);
         const { user } = req.body;
+        console.log(user);
         if (!user) {
             return res.status(BAD_REQUEST).json({
                 error: paramMissingError,
             });
         }
-        await userDao.add(user);
+
+        var userData = new User();
+        userData.firstName = user.firstName;
+        userData.lastName = user.lastName;
+        userData.age = user.age;
+        await userRepository.save(userData);
         return res.status(CREATED).end();
     } catch (err) {
         logger.error(err.message, err);
         return res.status(BAD_REQUEST).json({
             error: err.message,
         });
-    } */
+    }
 });
 
 /******************************************************************************
- *                       Update - "PUT /api/users/update"
+ *                       Update - "PUT /api/users/update/:id"
  ******************************************************************************/
 
-router.put('/update', async (req: Request, res: Response) => {
-    /* try {
+router.put('/update/:id', async (req: Request, res: Response) => {
+    try {
+        const userRepository = getRepository(User);
+        let id = Number(req.params.id);
         const { user } = req.body;
+
         if (!user) {
             return res.status(BAD_REQUEST).json({
                 error: paramMissingError,
             });
         }
-        user.id = Number(user.id);
-        await userDao.update(user);
+
+        await userRepository.update(
+            id,
+            user,
+        );
         return res.status(OK).end();
     } catch (err) {
         logger.error(err.message, err);
         return res.status(BAD_REQUEST).json({
             error: err.message,
         });
-    } */
+    }
 });
 
 /******************************************************************************
@@ -79,16 +93,17 @@ router.put('/update', async (req: Request, res: Response) => {
  ******************************************************************************/
 
 router.delete('/delete/:id', async (req: Request, res: Response) => {
-    /* try {
-        const { id } = req.params as ParamsDictionary;
-        await userDao.delete(Number(id));
+    try {
+        const userRepository = getRepository(User);
+        const id = Number(req.params.id);
+        await userRepository.delete(id);
         return res.status(OK).end();
     } catch (err) {
         logger.error(err.message, err);
         return res.status(BAD_REQUEST).json({
             error: err.message,
         });
-    } */
+    }
 });
 
 /******************************************************************************
