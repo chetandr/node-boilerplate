@@ -72,6 +72,10 @@ router.put('/update/:id', async (req: Request, res: Response) => {
                 error: paramMissingError,
             });
         }
+        const userExist = await userRepository.findOne(id);
+        if(!userExist) {
+            throw new Error("Could not update user.");
+        }
 
         await userRepository.update(
             id,
