@@ -8,10 +8,7 @@ import {getRepository} from "typeorm";
 import {NextFunction, Request, Response, Router, Express} from "express";
 import {User} from "../entity/User";
 
-// Init shared
 const router = Router();
-// const userDao = new UserDao();
-
 
 /******************************************************************************
  *                      Get All Users - "GET /api/users/all"
@@ -19,6 +16,7 @@ const router = Router();
 
 router.get('/all', async (req: Request, res: Response) => {
     try {
+        //throw new Error('Something bad happened');
         const userRepository = getRepository(User);
         const users = await userRepository.find();
         return res.status(OK).json({users});
@@ -38,7 +36,7 @@ router.post('/add', async (req: Request, res: Response) => {
     try {
         const userRepository = getRepository(User);
         const { user } = req.body;
-        console.log(user);
+        console.log("----req body user-->>>>", user);
         if (!user) {
             return res.status(BAD_REQUEST).json({
                 error: paramMissingError,
@@ -69,7 +67,7 @@ router.put('/update/:id', async (req: Request, res: Response) => {
         let id = Number(req.params.id);
         const { user } = req.body;
 
-        if (!user) {
+        if (!user || !id) {
             return res.status(BAD_REQUEST).json({
                 error: paramMissingError,
             });
@@ -96,6 +94,10 @@ router.delete('/delete/:id', async (req: Request, res: Response) => {
     try {
         const userRepository = getRepository(User);
         const id = Number(req.params.id);
+        const userExist = await userRepository.findOne(id);
+        if(!userExist) {
+            throw new Error("Could not delete user.");
+        }
         await userRepository.delete(id);
         return res.status(OK).end();
     } catch (err) {
