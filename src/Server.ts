@@ -4,10 +4,11 @@ import { Request, Response } from 'express';
 import logger from 'morgan';
 import path from 'path';
 import BaseRouter from './routes';
+import * as Validation  from './shared/Validator';
 
 // Init express
 const app = express();
-
+app.use(Validation.validatorMiddleware);
 // Add middleware/settings/routes to express.
 app.use(logger('dev'));
 app.use(express.json());
