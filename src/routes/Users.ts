@@ -1,12 +1,13 @@
 
 import { logger } from '@shared';
 import { BAD_REQUEST, CREATED, OK } from 'http-status-codes';
-import { paramMissingError } from '@shared';
+import { paramMissingError, verifyJwt } from '@shared';
 import { ParamsDictionary } from 'express-serve-static-core';
 
 import {getRepository} from "typeorm";
 import {NextFunction, Request, Response, Router, Express} from "express";
 import {User} from "../entity/User";
+
 
 const router = Router();
 
@@ -14,7 +15,7 @@ const router = Router();
  *                      Get All Users - "GET /api/users/all"
  ******************************************************************************/
 
-router.get('/all', async (req: Request, res: Response) => {
+router.get('/all', verifyJwt ,async (req: Request, res: Response) => {
     try {
         //throw new Error('Something bad happened');
         const userRepository = getRepository(User);
@@ -32,7 +33,7 @@ router.get('/all', async (req: Request, res: Response) => {
  *                       Add One - "POST /api/users/add"
  ******************************************************************************/
 
-router.post('/add', async (req: Request, res: Response) => {
+router.post('/add',async (req: Request, res: Response) => {
     try {
         const userRepository = getRepository(User);
         const { user } = req.body;
@@ -61,7 +62,7 @@ router.post('/add', async (req: Request, res: Response) => {
  *                       Update - "PUT /api/users/update/:id"
  ******************************************************************************/
 
-router.put('/update/:id', async (req: Request, res: Response) => {
+router.put('/update/:id', verifyJwt ,async (req: Request, res: Response) => {
     try {
         const userRepository = getRepository(User);
         let id = Number(req.params.id);
@@ -94,7 +95,7 @@ router.put('/update/:id', async (req: Request, res: Response) => {
  *                    Delete - "DELETE /api/users/delete/:id"
  ******************************************************************************/
 
-router.delete('/delete/:id', async (req: Request, res: Response) => {
+router.delete('/delete/:id', verifyJwt ,async (req: Request, res: Response) => {
     try {
         const userRepository = getRepository(User);
         const id = Number(req.params.id);

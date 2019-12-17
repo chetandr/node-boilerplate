@@ -18,3 +18,5 @@ const result2 = dotenv.config({
 if (result2.error) {
     throw result2.error;
 }
+
+export const JWT_SECRET_KEY = <string>process.env.JWT_SECRET_KEY;

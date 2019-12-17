@@ -1,10 +1,18 @@
-import {Entity, PrimaryGeneratedColumn, Column} from "typeorm";
+import {Entity, PrimaryGeneratedColumn, Column, Unique} from "typeorm";
+import * as bcrypt from 'bcryptjs';
 
 @Entity()
+@Unique(["username"])
 export class User {
 
     @PrimaryGeneratedColumn()
     id!: number;
+
+    @Column()
+    username!: string;
+
+    @Column()
+    password!: string;
 
     @Column()
     firstName!: string;
@@ -14,4 +22,12 @@ export class User {
 
     @Column()
     age!: number;
+
+    hashPassword() {
+        this.password = bcrypt.hashSync(this.password, 8);
+    }
+
+    checkIfPasswordIsValid(unencryptedPassword: string) {
+        return bcrypt.compareSync(unencryptedPassword, this.password);
+    }
 }
