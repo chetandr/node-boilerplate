@@ -5,14 +5,18 @@ import { User } from '../entity/User';
 import { getRepository } from 'typeorm';
 import * as jwt from 'jsonwebtoken';
 import { JWT_SECRET_KEY } from '../LoadEnv'
+import { validateSchema } from "../shared/JsonValidator"
+import { jsonArr }  from '../schema/UserSchema';
 
 const router = Router();
 
-/******************************************************************************
- *                      Login - "POST /api/auth/login"
- ******************************************************************************/
+/**
+ *  Login - "POST /api/auth/login"
+ */
 
-router.post('/login', async (req: Request, res: Response) => {
+router.post('/login', validateSchema('/login', jsonArr), async (req: Request, res: Response) => {
+
+    logger.info(req.body);
 
     let { username, password } = req.body;
     if (!(username && password)) {
@@ -38,56 +42,11 @@ router.post('/login', async (req: Request, res: Response) => {
     }
 
     //Sign JWT Token
-
-    const token = jwt.sign({ userId: user.id, username: user.username }, JWT_SECRET_KEY, { expiresIn: "30m" })
+    const token = jwt.sign({ userId: user.id, username: user.username }, JWT_SECRET_KEY, { expiresIn: "300m" })
     res.status(OK).json({
+        message: "You are logged in successfully!",
         token: token,
-        userId: user.id
     })
-
-})
-
-/******************************************************************************
- *                       Register New User - "POST /api/users/newuser"
- ******************************************************************************/
-
-router.post('/newuser',async (req: Request, res: Response) => {
-    try {
-        
-        const { user } = req.body;
-        console.log("----req body user-->>>>", user);
-        if (!user) {
-            throw new Error(paramMissingError)
-        }
-
-        var userData = new User();
-        userData.firstName = user.firstName;
-        userData.lastName = user.lastName;
-        userData.age = user.age;
-        userData.username = user.username;
-        userData.password = user.password;
-        userData.hashPassword()
-
-    } catch (err) {
-        logger.error(err.message, err);
-        return res.status(BAD_REQUEST).json({
-            error: err.message,
-        });
-    }
-
-    const userRepository = getRepository(User);
-
-    try {
-        await userRepository.save(userData);
-    }
-    catch(err){
-        logger.error(err.message, err);
-        return res.status(CONFLICT).json({
-            error: err.message,
-        });
-    }
-    
-    return res.status(CREATED).end();    
 });
 
 export default router;

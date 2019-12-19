@@ -6,7 +6,7 @@ import AuthRouter from './Auth';
 const router = Router();
 
 // Add sub-routes
-router.use('/users', UserRouter);
+router.use('/users',UserRouter);
 router.use('/auth', AuthRouter)
 
 // Export the base-router

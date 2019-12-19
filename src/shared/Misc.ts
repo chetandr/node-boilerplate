@@ -36,7 +36,7 @@ export const verifyJwt = (req: Request,  res: Response, next: NextFunction) => {
     }
 
     const { userId, username } = jwtPayload;
-    const newToken = jwt.sign({ userId, username }, JWT_SECRET_KEY, { expiresIn: "30m" });
+    const newToken = jwt.sign({ userId, username }, JWT_SECRET_KEY, { expiresIn: "300m" });
     res.setHeader("token", newToken);
 
     next();
