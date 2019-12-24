@@ -11,7 +11,6 @@ export const validateSchema = (pathName: any, jsonArr: any) => {
     return function (req: Request, res: Response, next: NextFunction) {
         let requestSchema: any = {}
         requestSchema = jsonArr.find((item: any) => item.pathname === pathName)
-        console.log('requestSchema--->', requestSchema.schema)
         const validate = ajv.compile(requestSchema.schema);
         let requestBody = req.body;
         let valid = validate(requestBody);

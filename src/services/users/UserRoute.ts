@@ -5,24 +5,24 @@ import * as userController from './UserController'
 const router = Router();
 
 /**
- *  Get All Users - "GET /api/users/all"
+ *  Get All Users - "GET /api/users"
  **/
 router.get('/', userController.getUsers);
 
 /**
- *  Add One - "POST /api/users/add"
+ *  Add One - "POST /api/users"
  */
 
 router.post('/', validateSchema('addUser', jsonArr), userController.addUser);
 
 /**
- * Update - "PUT /api/users/update/:id"
+ * Update - "PUT /api/users/:id"
  */
 
 router.put('/:id', validateSchema('updateUser', jsonArr), userController.updateUser);
 
 /**
- * Delete - "DELETE /api/users/delete/:id"
+ * Delete - "DELETE /api/users/:id"
  */
 
 router.delete('/:id', userController.deleteUser);

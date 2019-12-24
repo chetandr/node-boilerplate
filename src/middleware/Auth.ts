@@ -6,9 +6,8 @@ import { UNAUTHORIZED, OK } from 'http-status-codes';
 const skipPath: Array<string> = ['/api/auth/login']
 
 export const verifyJwt = (req: Request, res: Response, next: NextFunction) => {
-    let flag: number
-    flag = skipPath.indexOf(req.url)
-    if (flag > -1) next()
+    let flag:number = skipPath.indexOf(req.url)
+    if (flag > -1) return next()
 
     const token = <string>req.headers['authorization'];
     let jwtPayload;

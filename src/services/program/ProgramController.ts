@@ -1,13 +1,19 @@
-import * as wfbService from './WfbService'
 import { NextFunction, Request, Response } from "express";
 import { logger } from '@middleware';
 import { BAD_REQUEST, CREATED, OK } from 'http-status-codes';
 import { paramMissingError, verifyJwt } from '@middleware';
+import * as orm from "../../ormapis/requests";
 
-export const getWfb = async (req: Request, res: Response) => {
+/**
+ * 
+ * @param req 
+ * @param res  
+ * Gets All programs 
+ */
+export const getProgram = async (req: Request, res: Response) => {
     try {
-        const wfb = await wfbService.getAllWfbs();
-        return res.status(OK).json(wfb);
+        const result = await orm.get('programs');
+        return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
         return res.status(BAD_REQUEST).json({
@@ -16,18 +22,23 @@ export const getWfb = async (req: Request, res: Response) => {
     }
 };
 
-export const addWfb = async (req: Request, res: Response) => {
+/**
+ * 
+ * @param req 
+ * @param res 
+ * Add programs 
+ */
+
+export const addProgram = async (req: Request, res: Response) => {
     try {
-        const wfb = req.body;
-        if (!wfb) {
+        const program = req.body;
+        if (!program) {
             return res.status(BAD_REQUEST).json({
                 error: paramMissingError,
             });
         }
-        await wfbService.addWfb(wfb);
-        return res.status(CREATED).json({
-            message: "Workflow created successfully!"
-        });
+        let result: any = await orm.post(`program`, program);
+        return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
         return res.status(BAD_REQUEST).json({
@@ -36,20 +47,24 @@ export const addWfb = async (req: Request, res: Response) => {
     }
 };
 
-export const updateWfb = async (req: Request, res: Response) => {
+/**
+ * 
+ * @param req 
+ * @param res 
+ * Update Program
+ */
+export const updateProgram = async (req: Request, res: Response) => {
     try {
         let id = Number(req.params.id);
-        const wfb = req.body;
+        const user = req.body;
 
-        if (!wfb || !id) {
+        if (!user || !id) {
             return res.status(BAD_REQUEST).json({
                 error: paramMissingError,
             });
         }
-        await wfbService.updateWfb(wfb, id);
-        return res.status(OK).json({
-            message: "Workflow updated successfully!"
-        });
+        let result: any = await orm.put(`programs/${id}`, user);
+        return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
         return res.status(BAD_REQUEST).json({
@@ -58,13 +73,17 @@ export const updateWfb = async (req: Request, res: Response) => {
     }
 }
 
-export const deleteWfb = async (req: Request, res: Response) => {
+/**
+ * 
+ * @param req 
+ * @param res 
+ * Deletes program
+ */
+export const deleteProgram = async (req: Request, res: Response) => {
     try {
         const id = Number(req.params.id);
-        await wfbService.deleteWfb(id);
-        return res.status(OK).json({
-            message: "Workflow deleted successfully!"
-        });
+        let result: any = await orm.remove(`users/${id}`);
+        return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
         return res.status(BAD_REQUEST).json({
