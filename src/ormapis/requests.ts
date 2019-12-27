@@ -2,8 +2,9 @@
  * Setup the Reqeust APIs.
  *
  */
-const baseurl = <string>process.env.ORM_BASEURL; // ORM service Base URL
+
 import * as orm from 'request-promise';
+import { BASEURL } from '../LoadEnv';
 
 /**
  * @endpoint : ORM endpoint
@@ -13,7 +14,7 @@ import * as orm from 'request-promise';
 
 export const post = async (endpoint: string, body: object) => {
     let options = {
-        uri: `${baseurl}/${endpoint}`,
+        uri: `${BASEURL}/${endpoint}`,
         body: body,
         json: true // Automatically stringifies the body to JSON
     };
@@ -34,7 +35,7 @@ export const post = async (endpoint: string, body: object) => {
 
 export const put = async (endpoint: string, body: object) => {
     let options = {
-        uri: `${baseurl}/${endpoint}`,
+        uri: `${BASEURL}/${endpoint}`,
         body: body,
         json: true // Automatically stringifies the body to JSON
     };
@@ -55,7 +56,7 @@ export const put = async (endpoint: string, body: object) => {
 
 export const get = async (endpoint: string) => {
     let options = {
-        uri: `${baseurl}/${endpoint}`,
+        uri: `${BASEURL}/${endpoint}`,
         json: true // Automatically stringifies the body to JSON
     };
 
@@ -75,7 +76,7 @@ export const get = async (endpoint: string) => {
 
 export const remove = async (endpoint: string) => {
     let options = {
-        uri: `${baseurl}/${endpoint}`,
+        uri: `${BASEURL}/${endpoint}`,
         json: true // Automatically stringifies the body to JSON
     };
 
