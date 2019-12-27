@@ -2,7 +2,6 @@ import cookieParser from 'cookie-parser';
 import express from 'express';
 import logger from 'morgan';
 import BaseRouter from './routes';
-import { verifyJwt } from '@middleware'
 
 // Init express
 const app = express();

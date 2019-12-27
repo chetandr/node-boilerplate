@@ -1,8 +1,7 @@
 import * as userService from './UserService'
 import { NextFunction, Request, Response } from "express";
-import { logger } from '@middleware';
 import { BAD_REQUEST, CREATED, OK } from 'http-status-codes';
-import { paramMissingError, verifyJwt } from '@middleware';
+import { paramMissingError, logger } from '@middleware';
 
 export const getUsers = async (req: Request, res: Response) => {
     try {

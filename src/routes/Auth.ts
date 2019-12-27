@@ -5,7 +5,6 @@ import { User } from '../services/users/UserEntity';
 import { getRepository } from 'typeorm';
 import * as jwt from 'jsonwebtoken';
 import { JWT_SECRET_KEY } from '../LoadEnv'
-import { validateSchema } from "../middleware/JsonValidator"
 
 const router = Router();
 
