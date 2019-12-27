@@ -3,8 +3,6 @@ import { logger, paramMissingError, invalidPasswordError } from '@middleware';
 import { BAD_REQUEST, OK, UNAUTHORIZED, CREATED, CONFLICT } from 'http-status-codes';
 import { User } from '../services/users/UserEntity';
 import { getRepository } from 'typeorm';
-import * as jwt from 'jsonwebtoken';
-import { JWT_SECRET_KEY } from '../LoadEnv'
 
 const router = Router();
 
@@ -31,6 +29,7 @@ router.post('/login', async (req: Request, res: Response) => {
         if (!user.checkIfPasswordIsValid(password)) {
             throw new Error(invalidPasswordError)
         }
+        res.status(OK).json(user);
     }
     catch (err) {
         logger.error(err.message, err);
@@ -38,13 +37,6 @@ router.post('/login', async (req: Request, res: Response) => {
             error: err.message,
         });
     }
-
-    //Sign JWT Token
-    const token = jwt.sign({ userId: user.id, username: user.username }, JWT_SECRET_KEY, { expiresIn: "300m" })
-    res.status(OK).json({
-        message: "You are logged in successfully!",
-        token: token,
-    })
 });
 
 export default router;

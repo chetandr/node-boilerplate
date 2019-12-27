@@ -1,6 +1,5 @@
 import { Router } from 'express';
 import UserRouter from '../services/users/UserRoute';
-import WfbRouter from '../services/wfb/WfbRoute';
 import AuthRouter from './Auth';
 
 // Init router and path
