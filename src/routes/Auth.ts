@@ -23,7 +23,8 @@ router.post('/login', validateSchema('/login', jsonArr), async (req: Request, re
     }
     let user: any
     try {
-        user = await orm.post(`auth/login/`, req.body)
+        console.log("req.originalUrl-------->", req.originalUrl);
+        user = await orm.post(req.originalUrl, req.body)
     }
     catch (err) {
         logger.error(err.message, err);
