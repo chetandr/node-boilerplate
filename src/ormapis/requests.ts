@@ -59,6 +59,7 @@ export const get = async (endpoint: string) => {
         uri: `${BASEURL}/${endpoint}`,
         json: true // Automatically stringifies the body to JSON
     };
+    
 
     let res = await orm.get(options).catch(function (err: any) {
         throw new Error(err)
