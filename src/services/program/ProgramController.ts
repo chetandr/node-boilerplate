@@ -12,7 +12,7 @@ import * as orm from "../../ormapis/requests";
  */
 export const getProgram = async (req: Request, res: Response) => {
     try {
-        const result = await orm.get('programs');
+        const result = await orm.get(req.originalUrl);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
@@ -37,7 +37,7 @@ export const addProgram = async (req: Request, res: Response) => {
                 error: paramMissingError,
             });
         }
-        let result: any = await orm.post(`program`, program);
+        let result: any = await orm.post(req.originalUrl, program);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
@@ -63,7 +63,7 @@ export const updateProgram = async (req: Request, res: Response) => {
                 error: paramMissingError,
             });
         }
-        let result: any = await orm.put(`programs/${id}`, user);
+        let result: any = await orm.put(req.originalUrl, user);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
@@ -82,8 +82,50 @@ export const updateProgram = async (req: Request, res: Response) => {
 export const deleteProgram = async (req: Request, res: Response) => {
     try {
         const id = Number(req.params.id);
-        let result: any = await orm.remove(`users/${id}`);
+        let result: any = await orm.remove(req.originalUrl);
         return res.status(OK).json(result);
+    } catch (err) {
+        logger.error(err.message, err);
+        return res.status(BAD_REQUEST).json({
+            error: err.message,
+        });
+    }
+}
+
+/**
+ * 
+ * @param req 
+ * @param res 
+ * Deletes program
+ */
+
+ /**
+  *  Get Program tags
+  */
+export const getProgramtags = async (req: Request, res: Response) => {
+    try {
+        const program_id = Number(req.params.id);
+        let result: any = await orm.remove(req.originalUrl);
+        return res.status(OK).json(result);
+    } catch (err) {
+        logger.error(err.message, err);
+        return res.status(BAD_REQUEST).json({
+            error: err.message,
+        });
+    }
+}
+
+ /**
+  *  Get Program Types tree
+  */
+ export const getProgramTypeTree = async (req: Request, res: Response) => {
+    try {
+        let result: any = await orm.get(req.originalUrl);
+        return res.status(OK).json({
+            message: "success",
+            data: result,
+        });
+
     } catch (err) {
         logger.error(err.message, err);
         return res.status(BAD_REQUEST).json({
