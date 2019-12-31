@@ -61,4 +61,41 @@ export const getSubjectAreas = async (req: Request, res: Response) => {
     }
 };
 
+/**
+ * 
+ * @param req 
+ * @param res 
+ * Get Owners
+ */
+
+export const getOwners = async (req: Request, res: Response) => {
+    try {
+        const result = await orm.get('wfb/owners');
+        return res.status(OK).json(result);
+    } catch (err) {
+        logger.error(err.message, err);
+        return res.status(BAD_REQUEST).json({
+            error: err.message,
+        });
+    }
+};
+/**
+ * 
+ * @param req 
+ * @param res 
+ * Get ProgramOwners
+ */
+
+export const getProgramOwners = async (req: Request, res: Response) => {
+    try {
+        const result = await orm.get('wfb/programOwners');
+        return res.status(OK).json(result);
+    } catch (err) {
+        logger.error(err.message, err);
+        return res.status(BAD_REQUEST).json({
+            error: err.message,
+        });
+    }
+};
+
 
