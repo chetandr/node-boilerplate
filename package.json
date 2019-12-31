@@ -28,7 +28,7 @@
     "morgan": "^1.9.1",
     "pg": "^7.14.0",
     "reflect-metadata": "^0.1.13",
-    "typeorm": "^0.2.21",
+    "typeorm": "^0.2.22",
     "winston": "^3.2.1"
   },
   "devDependencies": {
