@@ -2,27 +2,20 @@ import app from '../src/Server';
 import supertest from 'supertest';
 import { Response, SuperTest, Test } from 'supertest';
 import { BAD_REQUEST, CREATED, OK } from 'http-status-codes';
-import { pErr, paramMissingError } from '../src/shared';
-import {createConnection} from "typeorm";
-import { User } from "../src/entity/User";
+import { pErr, paramMissingError } from '../src/middleware';
+
 
 describe('Users Routes', () => {
 
     const usersPath = '/api/users';
-    const getUsersPath = `${usersPath}/all`;
-    const addUsersPath = `${usersPath}/add`;
-    const updateUserPath = `${usersPath}/update/:id`;
-    const deleteUserPath = `${usersPath}/delete/:id`;
+    const getUsersPath = `${usersPath}`;
+    const addUsersPath = `${usersPath}`;
+    const updateUserPath = `${usersPath}/:id`;
+    const deleteUserPath = `${usersPath}/:id`;
 
     let agent: SuperTest<Test>;
-    
-        beforeAll((done) => {
-            createConnection().then(async () => {
-                agent = supertest.agent(app);
-                done();
-            }).catch(error => console.log(error));
-        });
-    
+    agent = supertest.agent(app);
+
 
     describe(`"GET:${getUsersPath}"`, () => {
 
@@ -56,12 +49,10 @@ describe('Users Routes', () => {
     describe(`"POST:${addUsersPath}"`, () => {
 
         const userData = {
-            "user": {
-                "firstName": "sagar",
-                "lastName": "Kokate",
-                "age": 45
-            }
-        };
+            "firstName": "sagar",
+            "lastName": "Kokate",
+            "age": 45
+        }
 
         const callApi = (reqBody: object) => {
             return agent.post(addUsersPath).type('form').send(reqBody);
@@ -96,12 +87,10 @@ describe('Users Routes', () => {
     describe(`"PUT:${updateUserPath}"`, () => {
 
         const userData = {
-            "user": {
-                "firstName": "Santosh",
-                "lastName": "Kokate",
-                "age": 45
-            }
-        };
+            "firstName": "Santosh",
+            "lastName": "Kokate",
+            "age": 45
+        }
 
         const callApi = (reqBody: object, id: number) => {
             return agent.put(updateUserPath.replace(':id', id.toString())).type('form').send(reqBody);

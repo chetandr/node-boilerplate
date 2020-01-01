@@ -13,8 +13,8 @@
     "target": "es6",
     "moduleResolution": "node",
     "paths": {
-      "@shared": [
-        "src/shared"
+      "@middleware": [
+        "src/middleware"
       ]
     },
     "types": [

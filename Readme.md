@@ -1,17 +1,41 @@
-# Boilerplate for node with Typescript.
+# SeagateOSA - Request List
 
 1. npm install
 
-# TypeORM migrations
+2. add "env" folder in root dir with following files
 
-Add command to package.json "script"
-1. "typeorm:cli": "ts-node ./node_modules/typeorm/cli -f ormconfig.json"
+    $ touch development.env
 
-Create Migration
-1. npm run typeorm:cli -- migration:create -n NAME_OF_MIGRATION
+    # Environment
+    NODE_ENV=development
 
-Running Migration
-1. npm run typeorm:cli -- migration:run
+    # Server
+    PORT=3000
+    HOST=localhost
+    JWT_SECRET_KEY=abcd
 
-Revert Migration
-1. npm run typeorm:cli -- migration:revert
+    ORM_BASEURL=http://localhost:4000/api/
+
+    --------------------------------------------
+    $ touch production.env
+
+    # Environment
+    NODE_ENV=production
+
+    # Server
+    PORT=8081
+    HOST=<HOST_NAME>
+
+    USE_MOCK_DB=false
+
+    --------------------------------------------
+    $ touch test.env
+
+    # Environment
+    NODE_ENV=testing
+
+    # Server
+    PORT=4000
+    HOST=localhost
+
+
