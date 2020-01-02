@@ -28,6 +28,11 @@ router.put('/:id', validateSchema('updateProgram', jsonArr), prgController.updat
 router.delete('/:id', prgController.deleteProgram);
 
 /**
+ * get - "Get Program Tags"
+ */
+router.get('/:id', prgController.getProgramtags);
+
+/**
  *  Export
  */
 export default router;
