@@ -12,37 +12,37 @@ router.get('/', objectController.getObject);
 /**
  *  Get All Users - "GET /api/getHadoopMetaData"
  **/
-router.get('/getHadoopMetaData', objectController.getHadoopMetaData);
+router.get('/hadoopMetaData', objectController.getHadoopMetaData);
 
 
 /**
  *  Get All Users - "GET /api/getHadoopTableType"
  **/
-router.get('/getHadoopTableType', objectController.getHadoopTableType);
+router.get('/hadoopTableType', objectController.getHadoopTableType);
 
 
 /**
  *  Get All Users - "GET /api/getXml"
  **/
-router.get('/getXml', objectController.getXml);
+router.get('/xml', objectController.getXml);
 
 
 /**
  *  Get All Users - "GET /api/getFailDesc"
  **/
-router.get('/getFailDesc', objectController.getFailDesc);
+router.get('/failDesc', objectController.getFailDesc);
 
 
 /**
  *  Get All Users - "GET /api/getColumns"
  **/
-router.get('/getColumns', objectController.getColumns);
+router.get('/columns', objectController.getColumns);
 
 
 /**
  *  Get All Users - "GET /api/getDistinctValues"
  **/
-router.get('/getDistinctValues', objectController.getDistinctValues);
+router.get('/distinctValues', objectController.getDistinctValues);
 
 /**
  *  Add One - "POST /api/program"
