@@ -13,6 +13,10 @@ app.use(express.urlencoded({extended: true}));
 app.use(cookieParser());
 app.use(verifyJwt)
 app.use('/api', BaseRouter);
+
+app.use(function (req, res) {
+    res.status(404).send("Sorry can't find that API!")
+})
 /**
  * Point express to the 'views' directory. If you're using a
  * single-page-application framework like react or angular

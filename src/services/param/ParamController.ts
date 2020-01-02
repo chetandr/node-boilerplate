@@ -12,12 +12,27 @@ import * as orm from "../../ormapis/requests";
 export const getParams = async (req: Request, res: Response) => {
     try {
         const result = await orm.get(req.originalUrl);
-        //const response = [{datatype:"COLUMN_PICKER"},{datatype:"DATASET"},{datatype:"DATE"},{datatype:"DIRECTORY"},{datatype:"DYNAMIC_LIST"},{datatype:"EMPLOYEE"},{datatype:"NUMERIC"},{datatype:"PID"},{datatype:"STATIC_LIST"},{datatype:"TEXT"},{datatype:"TEXTAREA"}]
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
-        return res.status(BAD_REQUEST).json({
-            error: err.message,
+        return res.status(err.statusCode).json({
+            error: err.message
+        });
+    }
+};
+
+/**
+ * @param req 
+ * @param res  
+ * Gets All param data type /api/params/
+ */
+export const getParamMetadata = async (req: Request, res: Response) => {
+    try {
+        const result = await orm.get(req.originalUrl);
+        return res.status(OK).json(result);
+    } catch (err) {
+        return res.status(err.statusCode).json({
+            error: err.message
         });
     }
 };

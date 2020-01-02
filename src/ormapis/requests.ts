@@ -20,7 +20,7 @@ export const post = async (endpoint: string, body: object) => {
     };
 
     let res = await orm.post(options).catch(function (err: any) {
-        throw new Error(err)
+        throwOrmServiceError(err);
     });
 
     return res;
@@ -41,7 +41,7 @@ export const put = async (endpoint: string, body: object) => {
     };
 
     let res = await orm.put(options).catch(function (err: any) {
-        throw new Error(err)
+        throwOrmServiceError(err);
     });
 
     return res;
@@ -61,7 +61,7 @@ export const get = async (endpoint: string) => {
     };
 
     let res = await orm.get(options).catch(function (err: any) {
-        throw new Error(err)
+        throwOrmServiceError(err);
     });
 
     return res;
@@ -81,8 +81,15 @@ export const remove = async (endpoint: string) => {
     };
 
     let res = await orm.delete(options).catch(function (err: any) {
-        throw new Error(err)
+        throwOrmServiceError(err);
     });
 
     return res;
+}
+
+const throwOrmServiceError = (err: any) => {
+    let newErr: any = new Error();
+    newErr.statusCode = err.statusCode; // status received from ORM service
+    newErr.message = err.error.error // error message received from ORM service
+    throw newErr // throws error, which is catchable in node service controller
 }
