@@ -5,12 +5,17 @@ const router = Router();
 /**
  *  Get parameters - "GET /api/params"
  **/
-router.get('/', paramController.getParams);
+router.get('/:type?', paramController.getParams);
 
 /**
  *  Get parameter metadata by name - "GET /api/params/metabyname"
  **/
 router.get('/metadata/:type', paramController.getParamMetadata);
+
+/**
+ *  Get Parameter metadata by name - "GET /api/params/output_param"
+ **/
+router.get('/output_param/:programKey?', paramController.getOutputParamByProgramKey);
 
 /**
  *  Add One - "POST /api/program"

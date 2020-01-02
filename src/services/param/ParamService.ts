@@ -13,6 +13,12 @@ export const getParamMetadata = (metaType: string) => {
     return { "meta_by_name": true, "meta_type": metaType }   
 }
 
+export const getOutputParamByProgramKey = () => {
+    // var userDB = getConnection().getRepository(User);
+    // return userDB.find({ select: ["firstName", "lastName", "age", "username"], cache: true});
+    return { "getOutputParamByProgramKey": true }
+}
+
 export const addParam = (reqBody: any) => {
     /* var userDB = getConnection().getRepository(User);
     

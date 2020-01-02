@@ -10,6 +10,11 @@ import { paramMissingError, logger } from '@middleware';
  */
 export const getParams = async (req: Request, res: Response) => {
     try {
+        let paramTypes = ['INPUT PROMPT'];
+        let paramType = req.params.type;
+        if (paramType !== undefined && paramTypes.indexOf(paramType) === -1) {
+            throw new Error('Please provide correct param type')
+        }
         const result = await paramService.getAllParams();
         return res.status(OK).json({
             message: "success!",
@@ -39,6 +44,32 @@ export const getParamMetadata = async (req: Request, res: Response) => {
         }
 
         const result = await paramService.getParamMetadata(metaType);
+        return res.status(OK).json({
+            message: "success!",
+            data: result
+        });
+    } catch (err) {
+        logger.error(err.message, err);
+        return res.status(BAD_REQUEST).json({
+            error: err.message
+        });
+    }
+};
+
+/**
+ * @param req 
+ * @param res  
+ * Gets parameter metadata by name
+ */
+export const getOutputParamByProgramKey = async (req: Request, res: Response) => {
+    try {
+        let programKeys = ['pg1'];
+        let programKey = req.params.programKey;
+        if (programKey !== undefined && programKeys.indexOf(programKey) === -1) {
+            throw new Error('Please provice correct program Key')
+        }
+
+        const result = await paramService.getOutputParamByProgramKey();
         return res.status(OK).json({
             message: "success!",
             data: result
