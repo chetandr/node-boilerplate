@@ -3,9 +3,14 @@ import * as paramController from './ParamController'
 const router = Router();
 
 /**
- *  Get All Users - "GET /api/programs"
+ *  Get parameters - "GET /api/params"
  **/
 router.get('/', paramController.getParams);
+
+/**
+ *  Get parameter metadata by name - "GET /api/params/metabyname"
+ **/
+router.get('/metadata/:type', paramController.getParamMetadata);
 
 /**
  *  Add One - "POST /api/program"

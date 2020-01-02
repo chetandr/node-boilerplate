@@ -7,6 +7,12 @@ export const getAllParams = () => {
     return [{datatype:"COLUMN_PICKER"},{datatype:"DATASET"},{datatype:"DATE"},{datatype:"DIRECTORY"},{datatype:"DYNAMIC_LIST"},{datatype:"EMPLOYEE"},{datatype:"NUMERIC"},{datatype:"PID"},{datatype:"STATIC_LIST"},{datatype:"TEXT"},{datatype:"TEXTAREA"}]   
 }
 
+export const getParamMetadata = (metaType: string) => {
+    // var userDB = getConnection().getRepository(User);
+    // return userDB.find({ select: ["firstName", "lastName", "age", "username"], cache: true});
+    return { "meta_by_name": true, "meta_type": metaType }   
+}
+
 export const addParam = (reqBody: any) => {
     /* var userDB = getConnection().getRepository(User);
     
