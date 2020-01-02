@@ -24,9 +24,25 @@ export const getParams = async (req: Request, res: Response) => {
 /**
  * @param req 
  * @param res  
- * Gets All param data type /api/params/
+ * Gets All param data type /api/params/metadata
  */
 export const getParamMetadata = async (req: Request, res: Response) => {
+    try {
+        const result = await orm.get(req.originalUrl);
+        return res.status(OK).json(result);
+    } catch (err) {
+        return res.status(err.statusCode).json({
+            error: err.message
+        });
+    }
+};
+
+/**
+ * @param req 
+ * @param res  
+ * Gets All param data type /api/params/opParamByProgramKey
+ */
+export const getOutputParamByProgramKey = async (req: Request, res: Response) => {
     try {
         const result = await orm.get(req.originalUrl);
         return res.status(OK).json(result);

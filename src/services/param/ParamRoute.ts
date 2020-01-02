@@ -7,12 +7,17 @@ const router = Router();
 /**
  *  Get Params - "GET /api/params"
  **/
-router.get('/', paramController.getParams);
+router.get('/:type?', paramController.getParams);
 
 /**
  *  Get Parameter metadata by name - "GET /api/params/metabyname"
  **/
 router.get('/metadata/:type', paramController.getParamMetadata);
+
+/**
+ *  Get Parameter metadata by name - "GET /api/params/output_param"
+ **/
+router.get('/output_param/:programKey?', paramController.getOutputParamByProgramKey);
 
 /**
  *  Export
