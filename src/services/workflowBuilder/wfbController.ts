@@ -13,7 +13,7 @@ import * as orm from "../../ormapis/requests";
 
 export const getCategories = async (req: Request, res: Response) => {
     try {
-        const result = await orm.get('wfb/categories');
+        const result = await orm.get(req.originalUrl);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
@@ -32,7 +32,7 @@ export const getCategories = async (req: Request, res: Response) => {
 
 export const getStatuses = async (req: Request, res: Response) => {
     try {
-        const result = await orm.get('wfb/statuses');
+        const result = await orm.get(req.originalUrl);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
@@ -50,8 +50,26 @@ export const getStatuses = async (req: Request, res: Response) => {
  */
 
 export const getSubjectAreas = async (req: Request, res: Response) => {
+    try {        
+        const result = await orm.get(req.originalUrl);
+        return res.status(OK).json(result);
+    } catch (err) {
+        logger.error(err.message, err);
+        return res.status(BAD_REQUEST).json({
+            error: err.message,
+        });
+    }
+};
+
+/**
+ * 
+ * @param req 
+ * @param res 
+ * Get YieldSubjectAreas
+ */
+export const getYieldSubjectAreas = async (req: Request, res: Response) => {
     try {
-        const result = await orm.get('wfb/subjectAreas');
+        const result = await orm.get(req.originalUrl);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
@@ -70,7 +88,65 @@ export const getSubjectAreas = async (req: Request, res: Response) => {
 
 export const getOwners = async (req: Request, res: Response) => {
     try {
-        const result = await orm.get('wfb/owners');
+        const result = await orm.get(req.originalUrl);
+        return res.status(OK).json(result);
+    } catch (err) {
+        logger.error(err.message, err);
+        return res.status(BAD_REQUEST).json({
+            error: err.message,
+        });
+    }
+};
+
+/**
+ * 
+ * @param req 
+ * @param res 
+ * Get ProgramOwners
+ */
+
+export const getProgramOwners = async (req: Request, res: Response) => {
+    try {        
+        const result = await orm.get(req.originalUrl);
+        return res.status(OK).json(result);
+    } catch (err) {
+        logger.error(err.message, err);
+        return res.status(BAD_REQUEST).json({
+            error: err.message,
+        });
+    }
+};
+
+
+/**
+ * 
+ * @param req 
+ * @param res 
+ * Get SubjectArea
+ */
+
+export const getSubjectArea = async (req: Request, res: Response) => {
+    try {
+        const result = await orm.get(req.originalUrl);
+        return res.status(OK).json(result);
+    } catch (err) {
+        logger.error(err.message, err);
+        return res.status(BAD_REQUEST).json({
+            error: err.message,
+        });
+    }
+};
+
+/**
+ * 
+ * @param req 
+ * @param res 
+ * Get SubjectAreaPermissions
+ */
+
+export const getSubjectAreaPermissions = async (req: Request, res: Response) => {
+    try {
+        const result = await orm.get(req.originalUrl);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
@@ -83,12 +159,102 @@ export const getOwners = async (req: Request, res: Response) => {
  * 
  * @param req 
  * @param res 
- * Get ProgramOwners
+ * Get Programs
  */
 
-export const getProgramOwners = async (req: Request, res: Response) => {
+export const getPrograms = async (req: Request, res: Response) => {
     try {
-        const result = await orm.get('wfb/programOwners');
+        const result = await orm.get(req.originalUrl);
+        return res.status(OK).json(result);
+    } catch (err) {
+        logger.error(err.message, err);
+        return res.status(BAD_REQUEST).json({
+            error: err.message,
+        });
+    }
+};
+/**
+ * 
+ * @param req 
+ * @param res 
+ * Get ProgramVersions
+ */
+
+export const getProgramVersions = async (req: Request, res: Response) => {
+    try {
+        const result = await orm.get(req.originalUrl);
+        return res.status(OK).json(result);
+    } catch (err) {
+        logger.error(err.message, err);
+        return res.status(BAD_REQUEST).json({
+            error: err.message,
+        });
+    }
+};
+/**
+ * 
+ * @param req 
+ * @param res 
+ * Get ProgramInputPrompts
+ */
+
+export const getProgramInputPrompts = async (req: Request, res: Response) => {
+    try {
+        const result = await orm.get(req.originalUrl);
+        return res.status(OK).json(result);
+    } catch (err) {
+        logger.error(err.message, err);
+        return res.status(BAD_REQUEST).json({
+            error: err.message,
+        });
+    }
+};
+/**
+ * 
+ * @param req 
+ * @param res 
+ * Get ProgramOutputPrompts
+ */
+
+export const getProgramOutputPrompts = async (req: Request, res: Response) => {
+    try {
+        const result = await orm.get(req.originalUrl);
+        return res.status(OK).json(result);
+    } catch (err) {
+        logger.error(err.message, err);
+        return res.status(BAD_REQUEST).json({
+            error: err.message,
+        });
+    }
+};
+/**
+ * 
+ * @param req 
+ * @param res 
+ * Get ProgramOutputParameters
+ */
+
+export const getProgramOutputParameters = async (req: Request, res: Response) => {
+    try {
+        const result = await orm.get(req.originalUrl);
+        return res.status(OK).json(result);
+    } catch (err) {
+        logger.error(err.message, err);
+        return res.status(BAD_REQUEST).json({
+            error: err.message,
+        });
+    }
+};
+/**
+ * 
+ * @param req 
+ * @param res 
+ * Get ProgramFileType
+ */
+
+export const getProgramFileType = async (req: Request, res: Response) => {
+    try {
+        const result = await orm.get(req.originalUrl);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);

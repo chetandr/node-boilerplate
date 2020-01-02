@@ -14,7 +14,7 @@ import { BASEURL } from '../LoadEnv';
 
 export const post = async (endpoint: string, body: object) => {
     let options = {
-        uri: `${BASEURL}/${endpoint}`,
+        uri: `${BASEURL}${endpoint}`,
         body: body,
         json: true // Automatically stringifies the body to JSON
     };
@@ -35,7 +35,7 @@ export const post = async (endpoint: string, body: object) => {
 
 export const put = async (endpoint: string, body: object) => {
     let options = {
-        uri: `${BASEURL}/${endpoint}`,
+        uri: `${BASEURL}${endpoint}`,
         body: body,
         json: true // Automatically stringifies the body to JSON
     };
@@ -56,7 +56,7 @@ export const put = async (endpoint: string, body: object) => {
 
 export const get = async (endpoint: string) => {
     let options = {
-        uri: `${BASEURL}/${endpoint}`,
+        uri: `${BASEURL}${endpoint}`,
         json: true // Automatically stringifies the body to JSON
     };
     
@@ -77,7 +77,7 @@ export const get = async (endpoint: string) => {
 
 export const remove = async (endpoint: string) => {
     let options = {
-        uri: `${BASEURL}/${endpoint}`,
+        uri: `${BASEURL}${endpoint}`,
         json: true // Automatically stringifies the body to JSON
     };
 
