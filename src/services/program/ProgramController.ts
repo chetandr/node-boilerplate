@@ -86,7 +86,7 @@ export const deleteProgram = async (req: Request, res: Response) => {
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
-        return res.status(BAD_REQUEST).json({
+        return res.status(err.statusCode).json({
             error: err.message,
         });
     }
@@ -109,7 +109,7 @@ export const getProgramtags = async (req: Request, res: Response) => {
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
-        return res.status(BAD_REQUEST).json({
+        return res.status(err.statusCode).json({
             error: err.message,
         });
     }
@@ -128,8 +128,28 @@ export const getProgramtags = async (req: Request, res: Response) => {
 
     } catch (err) {
         logger.error(err.message, err);
-        return res.status(BAD_REQUEST).json({
+        return res.status(err.statusCode).json({
             error: err.message,
         });
     }
 }
+
+
+/**
+ * 
+ * @param req 
+ * @param res  
+ * Gets All programs by Environment. eg. By Dev, Staging, Production
+ */
+export const getProgrambyEnv = async (req: Request, res: Response) => {
+    try {
+        const envnum = Number(req.params.envnum);
+        const result = await orm.get(req.originalUrl);
+        return res.status(OK).json(result);
+    } catch (err) {
+        logger.error(err.message, err);
+        return res.status(BAD_REQUEST).json({
+            error: err.message,
+        });
+    }
+};

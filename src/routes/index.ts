@@ -6,6 +6,7 @@ import ParamRouter from '../services/param/ParamRoute';
 import TagRouter from '../services/program/TagRoute';
 import ProgramTypeRouter from '../services/program/ProgramTypeRoute';
 import LdapGroupRoute from '../services/program/LdapGroupRoute';
+import PromoteRoute from '../services/program/PromoteRoute';
 
 
 // Init router and path
@@ -14,10 +15,11 @@ const router = Router();
 // Add sub-routes
 router.use('/auth', AuthRouter);
 router.use('/users', UserRouter);
-router.use('/program', ProgramRouter);
+router.use('/programs', ProgramRouter);
 router.use('/params', ParamRouter);
 router.use('/programtypes', ProgramTypeRouter);
 router.use('/ldapgroups', LdapGroupRoute);
 router.use('/tags',TagRouter);
+router.use('/promoteprograms',PromoteRoute);
 // Export the base-router
 export default router;
