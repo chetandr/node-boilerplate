@@ -8,9 +8,9 @@ import { paramMissingError, logger } from '@middleware';
  * @param res  
  * Gets object data
  */
-export const getObject = async (req: Request, res: Response) => {
+export const object = async (req: Request, res: Response) => {
     try {
-        const result = await objectService.getAllObjects();
+        const result = await objectService.getObject();
         return res.status(OK).json({
             message: "success!",
             data: result
@@ -29,7 +29,7 @@ export const getObject = async (req: Request, res: Response) => {
  * Get hadoop meta data
  */
 export const hadoopMetaData = async (req: Request, res: Response) => {
-    return {result : "Success"}
+    return res.status(200).json({result : "Success"})
 }
 /**
  * @param req 
@@ -37,7 +37,7 @@ export const hadoopMetaData = async (req: Request, res: Response) => {
  * Get hadoop table type
  */
 export const hadoopTableType = async (req: Request, res: Response) => {
-    return {result : "Success"}
+    return res.status(200).json({result : "Success"})
 }
 /**
  * @param req 
@@ -45,7 +45,7 @@ export const hadoopTableType = async (req: Request, res: Response) => {
  * Get fail description
  */
 export const failDesc = async (req: Request, res: Response) => {
-    return {result : "Success"}
+    return res.status(200).json({result : "Success"})
 }
 /**
  * @param req 
@@ -53,7 +53,7 @@ export const failDesc = async (req: Request, res: Response) => {
  * Get xml data
  */
 export const xml = async (req: Request, res: Response) => {
-    return {result : "Success"}
+    return res.status(200).json({result : "Success"})
 }
 /**
  * @param req 
@@ -61,7 +61,7 @@ export const xml = async (req: Request, res: Response) => {
  * Add object
  */
 export const addObject = async (req: Request, res: Response) => {
-    return {result : "Success"}
+    return res.status(200).json({result : "Success"})
 }
 
 /**
@@ -70,7 +70,7 @@ export const addObject = async (req: Request, res: Response) => {
  * Get columns data
  */
 export const columns = async (req: Request, res: Response) => {
-    return {result : "Success"}
+    return res.status(200).json({result : "Success"})
 }
 
 /**
@@ -79,5 +79,5 @@ export const columns = async (req: Request, res: Response) => {
  * Delete object
  */
 export const deleteObject = async (req: Request, res: Response) => {
-    return {result : "Success"}
+    return res.status(200).json({result : "Success"})
 }

@@ -1,25 +1,34 @@
 import { getConnection } from "typeorm";
 
-export const getAllObjects = () => {
+export const getObject = () => {
     return {"result" : []}
 }
 
-export const getParamMetadata = (metaType: string) => {
+export const getHadoopMetaData = () => {
     return {"result" : []}
 }
 
-export const getOutputParamByProgramKey = () => {
+
+export const getHadoopTableType = () => {
     return {"result" : []}
 }
 
-export const addParam = (reqBody: any) => {
+export const getFailDesc = () => {
     return {"result" : []}
 }
 
-export const updateParam = async (user: any, id: number) => {
+export const getXml = () => {
     return {"result" : []}
 }
 
-export const deleteParam = async (id: number) => {
+export const getAddObject = () => {
     return {"result" : []}
- }
+}
+
+export const getColumns = () => {
+    return {"result" : []}
+}
+
+export const deleteObject = () => {
+    return {"result" : []}
+}
