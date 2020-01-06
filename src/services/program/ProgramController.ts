@@ -153,3 +153,15 @@ export const getProgramTypeTree = async (req: Request, res: Response) => {
         });
     }
 };
+
+export const getFiles = async (req: Request, res: Response) => {
+    try {
+        const files = await prgService.getFiles();
+        return res.status(OK).json(files);
+    } catch (err) {
+        logger.error(err.message, err);
+        return res.status(BAD_REQUEST).json({
+            error: err.message,
+        });
+    }
+};
