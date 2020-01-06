@@ -25,5 +25,15 @@ router.put('/:id', programController.updateProgram);
 
 router.delete('/:id', programController.deleteUser);
 
+/**
+ * get - "Get Files"
+ */
+router.get('/getFiles', programController.getFiles);
+
+/**
+ * get - "Get env num"
+ */
+router.get('/:envnum', programController.getProgrambyEnv);
+
 
 export default router;
