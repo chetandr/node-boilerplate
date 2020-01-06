@@ -30,33 +30,7 @@ export const getProgramTypeTree = () => {
     return programDB.find();
 }
 
-export class Programs {
-    getAllPrograms = () => {
-        var programDB = getConnection().getRepository(Program);
-        return programDB.find();
-    }
-
-    addProgram = (reqBody: any) => {
-        var programDB = getConnection().getRepository(Program);
-        let programData: any
-        return programDB.save(programData);
-    }
-
-    updateProgram = async (program: any, id: number) => {
-        var programDB = getConnection().getRepository(Program);
-        return await programDB.update(
-            id,
-            program,
-        );
-    }
-
-    deleteProgram = async (id: number) => {
-        var programDB = getConnection().getRepository(Program);
-        return await programDB.delete(id);
-    }
-
-    getProgramTypeTree = () => {
-        var programDB = getConnection().getRepository(ProgramType);
-        return programDB.find();
-    }
+export const getProgrambyEnv = (envnum:any) => {
+    var programDB = getConnection().getRepository(ProgramType);
+    return programDB.find();
 }

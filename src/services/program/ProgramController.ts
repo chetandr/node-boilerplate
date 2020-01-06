@@ -153,3 +153,23 @@ export const getProgramTypeTree = async (req: Request, res: Response) => {
         });
     }
 };
+
+/**
+ * 
+ * @param req 
+ * @param res  
+ * Gets All programs by Environment. eg. By Dev, Staging, Production
+ */
+export const getProgrambyEnv = async (req: Request, res: Response) => {
+    try {
+        const envnum = Number(req.params.envnum);
+        let result: any  = prgService.getProgrambyEnv(envnum)
+        result = [{}]; // dummy reposonse
+        return res.status(OK).json(result);
+    } catch (err) {
+        logger.error(err.message, err);
+        return res.status(BAD_REQUEST).json({
+            error: err.message,
+        });
+    }
+};
