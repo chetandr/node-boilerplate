@@ -14,7 +14,7 @@ const router = Router();
 // Add sub-routes
 router.use('/auth', AuthRouter);
 router.use('/users', UserRouter);
-router.use('/program', ProgramRouter);
+router.use('/programs', ProgramRouter);
 router.use('/params', ParamRouter);
 router.use('/programtypes', ProgramTypeRouter);
 router.use('/ldapgroups', LdapGroupRoute);

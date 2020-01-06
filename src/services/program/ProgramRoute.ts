@@ -33,6 +33,11 @@ router.delete('/:id', prgController.deleteProgram);
 router.get('/:id', prgController.getProgramtags);
 
 /**
+ * get - "Get Files"
+ */
+router.get('/getFiles', prgController.getFiles);
+
+/**
  *  Export
  */
 export default router;
