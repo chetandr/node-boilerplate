@@ -25,5 +25,10 @@ router.put('/:id', programController.updateProgram);
 
 router.delete('/:id', programController.deleteUser);
 
+/**
+ *  Get All Programs by Environment eg. Dev Staging Prod  - "GET /api/programs/:envnum"
+ **/
+router.get('/:envnum', programController.getProgrambyEnv);
+
 
 export default router;

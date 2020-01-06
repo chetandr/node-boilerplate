@@ -30,7 +30,7 @@ export const getProgramTypeTree = () => {
     return programDB.find();
 }
 
-export const getProgrambyEnv = (envnum:any) => {
-    var programDB = getConnection().getRepository(ProgramType);
+export const getProgrambyEnv = (envnum:number) => {
+    var programDB = getConnection().getRepository(Program);
     return programDB.find();
 }
