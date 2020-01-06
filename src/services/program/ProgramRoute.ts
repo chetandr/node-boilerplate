@@ -5,7 +5,7 @@ import * as prgController from './ProgramController'
 const router = Router();
 
 /**
- *  Get All Users - "GET /api/programs"
+ *  Get All Programs - "GET /api/programs"
  **/
 router.get('/', prgController.getProgram);
 
@@ -27,10 +27,6 @@ router.put('/:id', validateSchema('updateProgram', jsonArr), prgController.updat
 
 router.delete('/:id', prgController.deleteProgram);
 
-/**
- * get - "Get Program Tags"
- */
-router.get('/:id', prgController.getProgramtags);
 
 /**
  * get - "Get Files"
