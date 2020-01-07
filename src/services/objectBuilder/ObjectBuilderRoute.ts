@@ -33,7 +33,13 @@ router.post('/', objectBuilderController.addObject);
  * Update - "PUT /api/columns"
  */
 
-router.put('/columns', objectBuilderController.columns);
+router.get('/columns', objectBuilderController.columns);
+
+
+/**
+ *  Get parameters - "GET /api/hadoopMetaData"
+ **/
+router.get('/distinctValues', objectBuilderController.distinctValues);
 
 /**
  * Delete - "DELETE /api/:object"
