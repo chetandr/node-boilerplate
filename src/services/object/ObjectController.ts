@@ -10,8 +10,7 @@ import * as orm from "../../ormapis/requests";
  */
 export const getObject = async (req: Request, res: Response) => {
     try {
-        //const  result= await orm.get(req.originalUrl);
-        const  result= [{datatype:"COLUMN_PICKER"},{datatype:"DATASET"},{datatype:"DATE"},{datatype:"DIRECTORY"},{datatype:"DYNAMIC_LIST"},{datatype:"EMPLOYEE"},{datatype:"NUMERIC"},{datatype:"PID"},{datatype:"STATIC_LIST"},{datatype:"TEXT"},{datatype:"TEXTAREA"}]
+        const  result= await orm.get(req.originalUrl);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
@@ -27,8 +26,7 @@ export const getObject = async (req: Request, res: Response) => {
  */
 export const getHadoopMetaData = async (req: Request, res: Response) => {
     try {
-        //const  result= await orm.get(req.originalUrl);
-        const  result= [{datatype:"COLUMN_PICKER"},{datatype:"DATASET"},{datatype:"DATE"},{datatype:"DIRECTORY"},{datatype:"DYNAMIC_LIST"},{datatype:"EMPLOYEE"},{datatype:"NUMERIC"},{datatype:"PID"},{datatype:"STATIC_LIST"},{datatype:"TEXT"},{datatype:"TEXTAREA"}]
+        const  result= await orm.get(req.originalUrl);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
@@ -44,8 +42,7 @@ export const getHadoopMetaData = async (req: Request, res: Response) => {
  */
 export const getHadoopTableType = async (req: Request, res: Response) => {
     try {
-        //const  result= await orm.get(req.originalUrl);
-        const  result= [{datatype:"COLUMN_PICKER"},{datatype:"DATASET"},{datatype:"DATE"},{datatype:"DIRECTORY"},{datatype:"DYNAMIC_LIST"},{datatype:"EMPLOYEE"},{datatype:"NUMERIC"},{datatype:"PID"},{datatype:"STATIC_LIST"},{datatype:"TEXT"},{datatype:"TEXTAREA"}]
+        const  result= await orm.get(req.originalUrl);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
@@ -61,8 +58,7 @@ export const getHadoopTableType = async (req: Request, res: Response) => {
  */
 export const getXml = async (req: Request, res: Response) => {
     try {
-        //const  result= await orm.get(req.originalUrl);
-        const  result= [{datatype:"COLUMN_PICKER"},{datatype:"DATASET"},{datatype:"DATE"},{datatype:"DIRECTORY"},{datatype:"DYNAMIC_LIST"},{datatype:"EMPLOYEE"},{datatype:"NUMERIC"},{datatype:"PID"},{datatype:"STATIC_LIST"},{datatype:"TEXT"},{datatype:"TEXTAREA"}]
+        const  result= await orm.get(req.originalUrl);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
@@ -78,8 +74,7 @@ export const getXml = async (req: Request, res: Response) => {
  */
 export const getFailDesc = async (req: Request, res: Response) => {
     try {
-        //const  result= await orm.get(req.originalUrl);
-        const  result= [{datatype:"COLUMN_PICKER"},{datatype:"DATASET"},{datatype:"DATE"},{datatype:"DIRECTORY"},{datatype:"DYNAMIC_LIST"},{datatype:"EMPLOYEE"},{datatype:"NUMERIC"},{datatype:"PID"},{datatype:"STATIC_LIST"},{datatype:"TEXT"},{datatype:"TEXTAREA"}]
+        const  result= await orm.get(req.originalUrl);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
@@ -95,8 +90,7 @@ export const getFailDesc = async (req: Request, res: Response) => {
  */
 export const getColumns = async (req: Request, res: Response) => {
     try {
-        //const  result= await orm.get(req.originalUrl);
-        const  result= [{datatype:"COLUMN_PICKER"},{datatype:"DATASET"},{datatype:"DATE"},{datatype:"DIRECTORY"},{datatype:"DYNAMIC_LIST"},{datatype:"EMPLOYEE"},{datatype:"NUMERIC"},{datatype:"PID"},{datatype:"STATIC_LIST"},{datatype:"TEXT"},{datatype:"TEXTAREA"}]
+        const  result= await orm.get(req.originalUrl);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
@@ -112,8 +106,7 @@ export const getColumns = async (req: Request, res: Response) => {
  */
 export const getDistinctValues = async (req: Request, res: Response) => {
     try {
-        //const  result= await orm.get(req.originalUrl);
-        const  result= [{datatype:"COLUMN_PICKER"},{datatype:"DATASET"},{datatype:"DATE"},{datatype:"DIRECTORY"},{datatype:"DYNAMIC_LIST"},{datatype:"EMPLOYEE"},{datatype:"NUMERIC"},{datatype:"PID"},{datatype:"STATIC_LIST"},{datatype:"TEXT"},{datatype:"TEXTAREA"}]
+        const  result= await orm.get(req.originalUrl);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
