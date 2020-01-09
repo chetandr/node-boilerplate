@@ -117,74 +117,113 @@ export const getDistinctValues = async (req: Request, res: Response) => {
 };
 
 /**
- * 
  * @param req 
- * @param res 
- * Add programs 
+ * @param res
  */
-
-export const addObject = async (req: Request, res: Response) => {
-    /* try {
-        const program = req.body;
-        if (!program) {
-            return res.status(BAD_REQUEST).json({
-                error: paramMissingError,
-            });
-        }
-        let result: any = await orm.post(`program`, program);
+export const getHadoopColumn = async (req: Request, res: Response) => {
+    try {
+        const  result= await orm.get(req.originalUrl);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
         return res.status(BAD_REQUEST).json({
             error: err.message,
         });
-    } */
-    return res.status(BAD_REQUEST).json();
+    }
 };
 
 /**
- * 
  * @param req 
- * @param res 
- * Update Program
+ * @param res
  */
-export const updateObject = async (req: Request, res: Response) => {
-    /* try {
-        let id = Number(req.params.id);
-        const user = req.body;
-
-        if (!user || !id) {
-            return res.status(BAD_REQUEST).json({
-                error: paramMissingError,
-            });
-        }
-        let result: any = await orm.put(`programs/${id}`, user);
+export const getTableColumnInfo = async (req: Request, res: Response) => {
+    try {
+        const  result= await orm.get(req.originalUrl);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
         return res.status(BAD_REQUEST).json({
             error: err.message,
         });
-    } */
-    return res.status(BAD_REQUEST).json();
-}
+    }
+};
 
 /**
- * 
  * @param req 
- * @param res 
- * Deletes program
+ * @param res
  */
-export const deleteObject = async (req: Request, res: Response) => {
-    /* try {
-        const id = Number(req.params.id);
-        let result: any = await orm.remove(`users/${id}`);
+export const getTableObjectInfo = async (req: Request, res: Response) => {
+    try {
+        const  result= await orm.get(req.originalUrl);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
         return res.status(BAD_REQUEST).json({
             error: err.message,
         });
-    } */
-    return res.status(BAD_REQUEST).json();
-}
+    }
+};
+
+/**
+ * @param req 
+ * @param res
+ */
+export const getHadoopTablesColumns = async (req: Request, res: Response) => {
+    try {
+        const  result= await orm.get(req.originalUrl);
+        return res.status(OK).json(result);
+    } catch (err) {
+        logger.error(err.message, err);
+        return res.status(BAD_REQUEST).json({
+            error: err.message,
+        });
+    }
+};
+
+/**
+ * @param req 
+ * @param res
+ */
+export const getAppendedColumns = async (req: Request, res: Response) => {
+    try {
+        const  result= await orm.get(req.originalUrl);
+        return res.status(OK).json(result);
+    } catch (err) {
+        logger.error(err.message, err);
+        return res.status(BAD_REQUEST).json({
+            error: err.message,
+        });
+    }
+};
+
+/**
+ * @param req 
+ * @param res
+ */
+export const getProgramOrderId = async (req: Request, res: Response) => {
+    try {
+        const  result= await orm.get(req.originalUrl);
+        return res.status(OK).json(result);
+    } catch (err) {
+        logger.error(err.message, err);
+        return res.status(BAD_REQUEST).json({
+            error: err.message,
+        });
+    }
+};
+
+/**
+ * @param req 
+ * @param res
+ */
+export const getPrimaryKeys = async (req: Request, res: Response) => {
+    try {
+        const  result= await orm.get(req.originalUrl);
+        return res.status(OK).json(result);
+    } catch (err) {
+        logger.error(err.message, err);
+        return res.status(BAD_REQUEST).json({
+            error: err.message,
+        });
+    }
+};

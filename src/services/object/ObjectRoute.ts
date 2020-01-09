@@ -45,20 +45,39 @@ router.get('/columns', objectController.getColumns);
 router.get('/distinctValues', objectController.getDistinctValues);
 
 /**
- *  Add One - "POST /program"
- */
-router.post('/', validateSchema('addObject', jsonArr), objectController.addObject);
+ *  Get All Users - "GET /getHadoopColumn"
+ **/
+router.get('/hadoopColumn', objectController.getHadoopColumn);
 
 /**
- * Update - "PUT /program/:id"
- */
-router.put('/:id', validateSchema('updateObject', jsonArr), objectController.updateObject);
+ *  Get All Users - "GET /getTableColumnInfo"
+ **/
+router.get('/tableColumnInfo', objectController.getTableColumnInfo);
 
 /**
- * Delete - "DELETE /program/:id"
- */
+ *  Get All Users - "GET /getTableObjectInfo"
+ **/
+router.get('/tableObjectInfo', objectController.getTableObjectInfo);
 
-router.delete('/:id', objectController.deleteObject);
+/**
+ *  Get All Users - "GET /getHadoopTablesColumns"
+ **/
+router.get('/hadoopTablesColumns', objectController.getHadoopTablesColumns);
+
+/**
+ *  Get All Users - "GET /getAppendedColumns"
+ **/
+router.get('/appendedColumns', objectController.getAppendedColumns);
+
+/**
+ *  Get All Users - "GET /getProgramOrderId"
+ **/
+router.get('/programOrderId', objectController.getProgramOrderId);
+
+/**
+ *  Get All Users - "GET /getPrimaryKeys"
+ **/    
+router.get('/primaryKeys', objectController.getPrimaryKeys);
 
 /**
  *  Export

@@ -11,7 +11,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(cookieParser());
-app.use(verifyJwt)
+// app.use(verifyJwt)
 app.use('/querybuilder', BaseRouter);
 /**
  * Point express to the 'views' directory. If you're using a
