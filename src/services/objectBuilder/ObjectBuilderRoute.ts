@@ -40,17 +40,40 @@ router.post('/', objectBuilderController.addObject);
 
 router.get('/columns', objectBuilderController.columns);
 
-
 /**
- *  Get parameters - "GET /api/hadoopMetaData"
+ *  Get parameters - "GET /api/getHadoopColumn"
  **/
-router.get('/distinctValues', objectBuilderController.distinctValues);
+router.get('/hadoopColumn', objectBuilderController.getHadoopColumn);
 
 /**
- * Delete - "DELETE /api/:object"
- */
+ *  Get parameters - "GET /api/getTableColumnInfo"
+ **/
+router.get('/tableColumnInfo', objectBuilderController.getTableColumnInfo);
 
-// router.delete('/:object', objectBuilderController.deleteObject);
+/**
+ *  Get parameters - "GET /api/getTableObjectInfo"
+ **/
+router.get('/tableObjectInfo', objectBuilderController.getTableObjectInfo);
+
+/**
+ *  Get parameters - "GET /api/getHadoopTablesColumns"
+ **/
+router.get('/hadoopTablesColumns', objectBuilderController.getHadoopTablesColumns);
+
+/**
+ *  Get parameters - "GET /api/getAppendedColumns"
+ **/
+router.get('/appendedColumns', objectBuilderController.getAppendedColumns);
+
+/**
+ *  Get parameters - "GET /api/getProgramOrderId"
+ **/
+router.get('/programOrderId', objectBuilderController.getProgramOrderId);
+
+/**
+ *  Get parameters - "GET /api/getPrimaryKeys"
+ **/
+router.get('/primaryKeys', objectBuilderController.getPrimaryKeys);
 
 /**
  *  Export

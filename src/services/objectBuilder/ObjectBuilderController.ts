@@ -96,8 +96,62 @@ export const distinctValues = async (req: Request, res: Response) => {
 /**
  * @param req 
  * @param res  
- * Delete object
+ * Get hadoop column
  */
-export const deleteObject = async (req: Request, res: Response) => {
+export const getHadoopColumn = async (req: Request, res: Response) => {
+    return res.status(200).json({result : "Success"})
+}
+
+/**
+ * @param req 
+ * @param res  
+ * Get table column information 
+ */
+export const getTableColumnInfo = async (req: Request, res: Response) => {
+    return res.status(200).json({result : "Success"})
+}
+
+/**
+ * @param req 
+ * @param res  
+ * Get table object information
+ */
+export const getTableObjectInfo = async (req: Request, res: Response) => {
+    return res.status(200).json({result : "Success"})
+}
+
+/**
+ * @param req 
+ * @param res  
+ * Get hadoop tables columns
+ */
+export const getHadoopTablesColumns = async (req: Request, res: Response) => {
+    return res.status(200).json({result : "Success"})
+}
+
+/**
+ * @param req 
+ * @param res  
+ * Get appended columns
+ */
+export const getAppendedColumns = async (req: Request, res: Response) => {
+    return res.status(200).json({result : "Success"})
+}
+
+/**
+ * @param req 
+ * @param res  
+ * Get program order id
+ */
+export const getProgramOrderId = async (req: Request, res: Response) => {
+    return res.status(200).json({result : "Success"})
+}
+
+/**
+ * @param req 
+ * @param res  
+ * Get primary keys
+ */
+export const getPrimaryKeys = async (req: Request, res: Response) => {
     return res.status(200).json({result : "Success"})
 }
