@@ -3,6 +3,11 @@ import * as objectBuilderController from './ObjectBuilderController'
 const router = Router();
 
 /**
+ *  Get parameters - "GET query builder"
+ **/
+router.get('/', objectBuilderController.queryBuilder);
+
+/**
  *  Get parameters - "GET /api/hadoopMetaData"
  **/
 router.get('/hadoopMetaData', objectBuilderController.hadoopMetaData);
@@ -33,7 +38,13 @@ router.post('/', objectBuilderController.addObject);
  * Update - "PUT /api/columns"
  */
 
-router.put('/columns', objectBuilderController.columns);
+router.get('/columns', objectBuilderController.columns);
+
+
+/**
+ *  Get parameters - "GET /api/hadoopMetaData"
+ **/
+router.get('/distinctValues', objectBuilderController.distinctValues);
 
 /**
  * Delete - "DELETE /api/:object"
