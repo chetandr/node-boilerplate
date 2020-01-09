@@ -2,7 +2,9 @@
 
 1. npm install
 
-2. add "env" folder in root dir with following files
+2. rename ormconfig.txt to ormconfig.json and add your local db creds.
+
+3. add "env" folder in root dir with following files
 
     $ touch development.env
 

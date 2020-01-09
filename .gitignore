@@ -7,4 +7,4 @@ temp/
 env/
 dist/
 logs/
-./ormconfig.json
+ormconfig.json
