@@ -8,7 +8,7 @@ import * as orm from "../../ormapis/requests";
  * @param req 
  * @param res  
  */
-export const getObject = async (req: Request, res: Response) => {
+export const getQuery = async (req: Request, res: Response) => {
     try {
         const  result= await orm.get(req.originalUrl);
         return res.status(OK).json(result);

@@ -1,12 +1,12 @@
 import { Router } from 'express';
-import objectRouter from '../services/object/ObjectRoute';
+import queryRouter from '../services/queryBuilder/QueryRoute';
 
 
 // Init router and path
 const router = Router();
 
 // Add sub-routes
-router.use('/', objectRouter);
+router.use('/', queryRouter);
 
 // Export the base-router
 export default router;
