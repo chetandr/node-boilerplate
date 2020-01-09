@@ -6,24 +6,22 @@ import ProgramRouter from '../services/program/ProgramRoute';
 import TagRouter from '../services/program/TagRoute';
 import ProgramTypeRouter from '../services/program/ProgramTypeRoute';
 import LdapGroupRoute from '../services/program/LdapGroupRoute';
-import ObjectBuilderRoute from '../services/objectBuilder/ObjectBuilderRoute';
-import PromoteRoute from '../services/program/PromoteRoute';
+import ObjectRouter from '../services/objectBuilder/ObjectRoute';
 
 
 // Init router and path
 const router = Router();
 
 // Add sub-routes
-router.use('/users',UserRouter);
-router.use('/workflows',UserRouter);
+router.use('/users', UserRouter);
+router.use('/workflows', UserRouter);
 router.use('/auth', AuthRouter);
 router.use('/params', ParamRouter);
-router.use('/programs',ProgramRouter);
+router.use('/programs', ProgramRouter);
 router.use('/programtypes', ProgramTypeRouter);
 router.use('/ldapgroups', LdapGroupRoute);
-router.use('/tags',TagRouter);
-router.use('/querybuilder',ObjectBuilderRoute);
-router.use('/promoteprograms',PromoteRoute);
+router.use('/tags', TagRouter);
+router.use('/object', ObjectRouter);
 
 
 // Export the base-router
