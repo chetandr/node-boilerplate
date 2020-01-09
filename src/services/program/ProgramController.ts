@@ -182,7 +182,6 @@ export const getProgrambyEnv = async (req: Request, res: Response) => {
     try {
         const envnum = Number(req.params.envnum);
         let result: any  = prgService.getProgrambyEnv(envnum)
-        result = [{}]; // dummy reposonse
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
