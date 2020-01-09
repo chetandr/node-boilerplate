@@ -40,12 +40,12 @@ router.get('/programFileType/:subjectArea',WorflowBuilderController.getProgramFi
 /**
  *  Get subjectArea - "GET /api/wfb/subjectArea/:subjectArea"
  **/
-router.get('/subjectArea/:subjectArea',WorflowBuilderController.getSubjectArea);
+router.get('/subjectArea/:mineOnly/:subjectArea',WorflowBuilderController.getSubjectArea);
 
 /**
- *  Get All subjectAreaPermissions - "GET /api/wfb/subjectAreaPermissions"
+ *  Get All subjectAreaPermissions - "GET /api/wfb/subjectAreaPermissions/:subjectArea"
  **/
-router.get('/subjectAreaPermissions',WorflowBuilderController.getSubjectAreaPermissions);
+router.get('/subjectAreaPermissions/:subjectArea',WorflowBuilderController.getSubjectAreaPermissions);
 
 /**
  *  Get All programs - "GET /api/wfb/programs"
