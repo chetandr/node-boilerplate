@@ -3,6 +3,11 @@ import * as objectBuilderController from './ObjectBuilderController'
 const router = Router();
 
 /**
+ *  Get parameters - "GET query builder"
+ **/
+router.get('/', objectBuilderController.queryBuilder);
+
+/**
  *  Get parameters - "GET /api/hadoopMetaData"
  **/
 router.get('/hadoopMetaData', objectBuilderController.hadoopMetaData);

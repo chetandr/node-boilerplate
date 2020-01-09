@@ -24,6 +24,15 @@ export const object = async (req: Request, res: Response) => {
 };
 
 /**
+ * @param req
+ * @param res
+ * Get query builder data
+ */
+export const queryBuilder = async (req: Request, res: Response) => {
+    return res.status(200).json({result : "Success"})
+}
+
+/**
  * @param req 
  * @param res  
  * Get hadoop meta data
@@ -31,6 +40,7 @@ export const object = async (req: Request, res: Response) => {
 export const hadoopMetaData = async (req: Request, res: Response) => {
     return res.status(200).json({result : "Success"})
 }
+
 /**
  * @param req 
  * @param res  
