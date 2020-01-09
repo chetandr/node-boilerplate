@@ -1,5 +1,5 @@
 import { Router } from "express"
-import * as objectBuilderController from './ObjectBuilderController'
+import * as objectBuilderController from './QueryBuilderController'
 const router = Router();
 
 /**
@@ -8,70 +8,69 @@ const router = Router();
 router.get('/', objectBuilderController.queryBuilder);
 
 /**
- *  Get parameters - "GET /api/hadoopMetaData"
+ *  Get parameters - "GET /hadoopMetaData"
  **/
 router.get('/hadoopMetaData', objectBuilderController.hadoopMetaData);
 
 /**
- *  Get parameter metadata by name - "GET /api/hadoopTableType"
+ *  Get parameter metadata by name - "GET /hadoopTableType"
  **/
 router.get('/hadoopTableType', objectBuilderController.hadoopTableType);
 
 /**
- *  Get Parameter metadata by name - "GET /api/failDesc"
+ *  Get Parameter metadata by name - "GET /failDesc"
  **/
 router.get('/failDesc', objectBuilderController.failDesc);
 
 
 /**
- *  Get parameters - "GET /api/xml"
+ *  Get parameters - "GET /xml"
  **/
 router.get('/xml', objectBuilderController.xml);
 
 /**
- *  Add One - "POST /api/"
- */
-
-router.post('/', objectBuilderController.addObject);
-
-/**
- * Update - "PUT /api/columns"
+ * GET - "GET /columns"
  */
 
 router.get('/columns', objectBuilderController.columns);
 
 /**
- *  Get parameters - "GET /api/getHadoopColumn"
+ *  Get parameters - "GET /getHadoopColumn"
+ **/
+router.get('/distinctValues', objectBuilderController.distinctValues);
+
+/**
+ *  Get parameters - "GET /getHadoopColumn"
  **/
 router.get('/hadoopColumn', objectBuilderController.getHadoopColumn);
 
 /**
- *  Get parameters - "GET /api/getTableColumnInfo"
+ *  Get parameters - "GET /getTableColumnInfo"
  **/
 router.get('/tableColumnInfo', objectBuilderController.getTableColumnInfo);
 
 /**
- *  Get parameters - "GET /api/getTableObjectInfo"
+ *  Get parameters - "GET /getTableObjectInfo"
  **/
 router.get('/tableObjectInfo', objectBuilderController.getTableObjectInfo);
 
 /**
- *  Get parameters - "GET /api/getHadoopTablesColumns"
+ *  Get parameters - "GET /getHadoopTablesColumns"
  **/
 router.get('/hadoopTablesColumns', objectBuilderController.getHadoopTablesColumns);
 
 /**
- *  Get parameters - "GET /api/getAppendedColumns"
+ *  Get parameters - "GET /getAppendedColumns"
  **/
 router.get('/appendedColumns', objectBuilderController.getAppendedColumns);
 
 /**
- *  Get parameters - "GET /api/getProgramOrderId"
+ *  Get parameters - "GET /getProgramOrderId"
  **/
 router.get('/programOrderId', objectBuilderController.getProgramOrderId);
 
 /**
- *  Get parameters - "GET /api/getPrimaryKeys"
+ *  Get parameters - "GET /getPrimaryKeys"
  **/
 router.get('/primaryKeys', objectBuilderController.getPrimaryKeys);
 

@@ -1,6 +1,6 @@
 import { getConnection } from "typeorm";
 
-export const getObject = () => {
+export const getQuery = () => {
     return {"result" : []}
 }
 
@@ -26,9 +26,5 @@ export const getAddObject = () => {
 }
 
 export const getColumns = () => {
-    return {"result" : []}
-}
-
-export const deleteObject = () => {
     return {"result" : []}
 }

@@ -1,4 +1,4 @@
-import * as objectService from './ObjectBuilderService'
+import * as queryService from './QueryBuilderService'
 import { NextFunction, Request, Response } from "express";
 import { BAD_REQUEST, CREATED, OK } from 'http-status-codes';
 import { paramMissingError, logger } from '@middleware';
@@ -6,11 +6,11 @@ import { paramMissingError, logger } from '@middleware';
 /**
  * @param req 
  * @param res  
- * Gets object data
+ * Gets query data
  */
-export const object = async (req: Request, res: Response) => {
+export const query = async (req: Request, res: Response) => {
     try {
-        const result = await objectService.getObject();
+        const result = await queryService.getQuery();
         return res.status(OK).json({
             message: "success!",
             data: result
@@ -65,14 +65,6 @@ export const failDesc = async (req: Request, res: Response) => {
 export const xml = async (req: Request, res: Response) => {
     return res.status(200).json({result : "Success"})
 }
-/**
- * @param req 
- * @param res  
- * Add object
- */
-export const addObject = async (req: Request, res: Response) => {
-    return res.status(200).json({result : "Success"})
-}
 
 /**
  * @param req 
@@ -112,9 +104,9 @@ export const getTableColumnInfo = async (req: Request, res: Response) => {
 }
 
 /**
- * @param req 
- * @param res  
- * Get table object information
+ * @param req
+ * @param res
+ * Get table query information
  */
 export const getTableObjectInfo = async (req: Request, res: Response) => {
     return res.status(200).json({result : "Success"})

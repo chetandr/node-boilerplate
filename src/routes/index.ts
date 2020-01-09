@@ -7,6 +7,7 @@ import TagRouter from '../services/program/TagRoute';
 import ProgramTypeRouter from '../services/program/ProgramTypeRoute';
 import LdapGroupRoute from '../services/program/LdapGroupRoute';
 import ObjectRouter from '../services/objectBuilder/ObjectRoute';
+import QueryBuilderRoute from '../services/queryBuilder/QueryBuilderRoute';
 
 
 // Init router and path
@@ -22,6 +23,7 @@ router.use('/programtypes', ProgramTypeRouter);
 router.use('/ldapgroups', LdapGroupRoute);
 router.use('/tags', TagRouter);
 router.use('/object', ObjectRouter);
+router.use('/queryBuilder', QueryBuilderRoute);
 
 
 // Export the base-router
