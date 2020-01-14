@@ -5,7 +5,12 @@ const router = Router();
 /**
  *  Get parameters - "GET query builder"
  **/
-router.get('/', objectBuilderController.queryBuilder);
+router.get('/', objectBuilderController.getQueryBuilder);
+
+/**
+ *  POST parameters - "Save query builder"
+ **/
+router.post('/', objectBuilderController.saveQueryBuilder);
 
 /**
  *  Get parameters - "GET /hadoopMetaData"

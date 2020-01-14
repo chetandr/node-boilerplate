@@ -28,10 +28,20 @@ export const query = async (req: Request, res: Response) => {
  * @param res
  * Get query builder data
  */
-export const queryBuilder = async (req: Request, res: Response) => {
+export const getQueryBuilder = async (req: Request, res: Response) => {
     return res.status(200).json({result : "Success"})
 }
 
+/**
+ * @param req
+ * @param res
+ * Save query builder data
+ */
+export const saveQueryBuilder = async (req: Request, res: Response) => {
+    console.log(`req.body`)
+    console.log(req.body)
+    return res.status(200).json({result : "Success"})
+}
 /**
  * @param req 
  * @param res  
