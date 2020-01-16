@@ -20,6 +20,23 @@ export const getQuery = async (req: Request, res: Response) => {
     }
 };
 
+
+/**
+ * @param req 
+ * @param res
+ */
+export const saveQueryBuilder = async (req: Request, res: Response) => {
+    try {
+        const  result= await orm.post(req.originalUrl, req.body);
+        return res.status(OK).json(result);
+    } catch (err) {
+        logger.error(err.message, err);
+        return res.status(BAD_REQUEST).json({
+            error: err.message,
+        });
+    }
+};
+
 /**
  * @param req 
  * @param res

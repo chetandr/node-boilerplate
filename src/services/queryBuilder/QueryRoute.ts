@@ -9,6 +9,13 @@ const router = Router();
  **/
 router.get('/', queryController.getQuery);
 
+
+/**
+ *  Get All Users - "GET /programs"
+ **/
+router.post('/', queryController.saveQueryBuilder);
+
+
 /**
  *  Get All Users - "GET /getHadoopMetaData"
  **/

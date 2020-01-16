@@ -40,6 +40,18 @@ describe('Query Builder Routes', () => {
                 });
         });
 
+        it(`Save Query Builder API call`, (done) => {
+
+            agent.post(getObjectBuilder)
+                .send({name: 'Seagate_OSA'})
+                .end((err: Error, res: Response) => {
+                    pErr(err);
+                    expect(res.status).toBe(OK);
+                    console.log("in objectBuilderTwo : POST : Query Builder ")
+                    expect(res.body.error).toBeUndefined();
+                    done();
+                });
+        });
     });
 
     describe("Test Hadoop column GET API call ", () => {
