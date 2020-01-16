@@ -38,8 +38,6 @@ export const getQueryBuilder = async (req: Request, res: Response) => {
  * Save query builder data
  */
 export const saveQueryBuilder = async (req: Request, res: Response) => {
-    console.log(`req.body`)
-    console.log(req.body)
     return res.status(200).json({result : "Success"})
 }
 /**
