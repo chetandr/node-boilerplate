@@ -37,4 +37,11 @@ router.get('/subjectArea/:mineOnly/:subjectArea',WorflowBuilderController.getSub
  **/
 router.get('/subjectAreaPermissions/:subjectArea',WorflowBuilderController.getSubjectAreaPermissions);
 
+/**
+ *  Get All Jobs - "GET /wfb/jobs"
+ **/
+router.get('/jobs',WorflowBuilderController.getJobs);
+
+
+
 export default router;
