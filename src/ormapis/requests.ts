@@ -61,6 +61,8 @@ export const get = async (endpoint: string) => {
     };
     
 
+    console.log(options.uri);
+    
     let res = await orm.get(options).catch(function (err: any) {
         throw new Error(err)
     });
