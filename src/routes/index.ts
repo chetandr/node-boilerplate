@@ -1,4 +1,6 @@
 import { Router } from 'express';
+import QueryBuilderRouter from '../services/queryBuilder/qbRoute';
+
 import WorkflowBuilderRouter from '../services/workflowBuilder/WfbRoute';
 import ProgramRouter from '../services/program/ProgramRoute';
 
@@ -6,6 +8,8 @@ import ProgramRouter from '../services/program/ProgramRoute';
 const router = Router();
 
 // Add sub-routes
+router.use('/queryBuilder', QueryBuilderRouter);
+
 router.use('/wfb', WorkflowBuilderRouter);
 router.use('/prg', ProgramRouter);
 
