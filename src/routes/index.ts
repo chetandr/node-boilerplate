@@ -10,7 +10,7 @@ const router = Router();
 // Add sub-routes
 router.use('/queryBuilder', QueryBuilderRouter);
 
-router.use('/wfb', WorkflowBuilderRouter);
+router.use('/workflowBuilder', WorkflowBuilderRouter);
 router.use('/prg', ProgramRouter);
 
 
