@@ -73,11 +73,6 @@ router.post('/publishFlow',WorflowBuilderController.publishFlow);
 router.post('/submitRequest',WorflowBuilderController.submitRequest);
 
 /**
- *  Get program types tree - "GET /wfb/programTypesTree"
- **/
-router.get('/programTypesTree',WorflowBuilderController.getProgramTypesTree);
-
-/**
  *  GET settings - "GET /wfb/settings"
  **/
 router.get('/settings',WorflowBuilderController.getSettings);
