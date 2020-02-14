@@ -93,9 +93,21 @@ router.get('/groups',WorflowBuilderController.getGroups);
 router.get('/groupPrograms',WorflowBuilderController.getGroupPrograms);
 
 /**
+ *  Get request - "POST /wfb/getAddedGroupProgram" -------//Maps to getGroupProgram
+ **/
+router.post('/addedGroupProgram',WorflowBuilderController.getAddedGroupProgram);
+
+/**
  *  GET metadata - "GET /wfb/metadata"
  **/
 router.get('/metadata',WorflowBuilderController.getMetadata);
+
+/**
+ *  GET metadata - "GET /wfb/datasetstree"
+ **/
+router.get('/datasetstree',WorflowBuilderController.getDatasetsTree);
+
+
 
 
 export default router;
