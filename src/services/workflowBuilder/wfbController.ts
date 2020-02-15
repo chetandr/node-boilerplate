@@ -276,14 +276,14 @@ export const submitRequest = async (req: Request, res: Response) => {
                     "tempId":"grouppanel-1167"}]}
     */
 
-    return {
+    return res.status(OK).json({
         "status": 200,
         "message": "E9005413",
         "message_code": "",
         "i18n_code": 'en',
         "data": [],
         "meta": {}
-    }
+    })
 
     // try {
     //     const result = await orm.post(req.originalUrl, req.body);
@@ -324,20 +324,14 @@ export const getSettings = async (req: Request, res: Response) => {
  */
 export const getUser = async (req: Request, res: Response) => {
 
-    return {
+    return res.status(OK).json({
         "status": 200,
         "message": "Mock Data",
         "message_code": "",
         "i18n_code": 'en',
-        "data": [{"group_array":[],"additional_info":{},"e_mail_work":"chetan.rane@seagate.com","global_id":"739374","name":"Chetan Rane"}],
-        "meta": {
-            "total": 1,
-            "page": req.body.page,
-            "limit": req.body.limit,
-            "sort_by": req.body.sort_by,
-            "order": req.body.order
-        }
-    }
+        "data": [{"group_array":[],"additional_info":{},"e_mail_work":"chetan.rane@seagate.com","global_id":"729016","name":"Chetan Rane"}],
+        "meta": {}
+    })
 
     // try {
     //     const result = await orm.get(req.originalUrl);
@@ -362,7 +356,7 @@ export const getGroups = async (req: Request, res: Response) => {
     //pid: E9005404
     //environment: Development
     let response = [{"index":"1","name":"Group 1 [1]"}]
-    return {
+    return res.status(OK).json({
         "status": 200,
         "message": `Mock Data for input --->
                     //pid: E9005404
@@ -371,7 +365,7 @@ export const getGroups = async (req: Request, res: Response) => {
         "i18n_code": 'en',
         "data": response,
         "meta": {}
-    }
+    })
     // try {
     //     const result = await orm.get(req.originalUrl);
     //     return res.status(OK).json(result);
@@ -395,7 +389,7 @@ export const getGroupPrograms = async (req: Request, res: Response) => {
     //environment: Development
     //groupIndex: 1
     let response = [{"display":"QB Table Query [1]","description":"athena","index":"1","node_id":"0cfa8194-01b8-4e19-ba77-fb53f2d2e571","name":"QB Table Query"}]
-    return {
+    return res.status(OK).json({
         "status": 200,
         "message": `Mock Data for input --->
                     //pid: E9005404
@@ -405,7 +399,7 @@ export const getGroupPrograms = async (req: Request, res: Response) => {
         "i18n_code": 'en',
         "data": response,
         "meta": {}
-    }
+    })
     // try {
     //     const result = await orm.get(req.originalUrl);
     //     return res.status(OK).json(result);
@@ -426,7 +420,7 @@ export const getAddedGroupProgram = async (req: Request, res: Response) => {
     let response = [{"groupString":"","parent_order_id":"",
     "queryConfig":{"fileTypeDisplay":"SAS CHUNKA QUERY - SAS7BDAT","queryType":"regular","outputFileType":"SAS7BDAT"},
     "addedQuickPicks":[{"quoted":true,"tableName":"DIM.DRIVE_PRODUCT_ST_MODEL_DIM","column":"DRIVE_PRODUCT_ST_MODEL_DIM.APPLICATION_SEGMENT_ABBR","shortSql":"DRIVE_PRODUCT_ST_MODEL_DIM.APPLICATION_SEGMENT_...","sql":"DRIVE_PRODUCT_ST_MODEL_DIM.APPLICATION_SEGMENT_ABBR = SYSDATE-9","pickLabel":"APPLICATION_SEGMENT_ABBR","daysBack2":"","tableAlias":"DRIVE_PRODUCT_ST_MODEL_DIM","placeinJoin":false,"operator":"=","daysBack1":9,"value1":"to_date('02\/04\/2020','mm\/dd\/yyyy')","pickType":"date","value2":"","relativeDates":true,"id":"WorkflowBuilder.model.QuickPick-1"}],"stop_on_error":true,"output_folder":"","run_version":8174,"dataset":"elib.all","addedFields":[{"tableName":"DRIVE_PRODUCT_ST_MODEL_DIM","tableOwner":"DIM","column":"APPLICATION_SEGMENT_ABBR","nullable":false,"detail":false,"name":"DRPRDST_APPLICATION_SEGMENT_1","sql":"APPLICATION_SEGMENT_ABBR","datatype":"VARCHAR2","tableAlias":"DRIVE_PRODUCT_ST_MODEL_DIM","joinaliases":"","id":"DRIVE_PRODUCT_ST_MODEL_DIM.APPLICATION_SEGMENT_ABBR","type":"Table Column(s)","groupby":false}],"parameters":[{"value":"athena","itemId":"","parameterType":"TEXT","name":"RESULT_DESCRIPTION"},{"value":"","itemId":"","parameterType":"TEXT","name":"Set_Command"},{"value":"","itemId":"","parameterType":"TEXT","name":"Partition"},{"value":"","itemId":"","parameterType":"TEXT","name":"Bucket"},{"value":35,"itemId":"","parameterType":"NUMBER","name":"CustomRetentionDays"},{"value":"ORC","itemId":"","parameterType":"TEXT","name":"ctasTableType"},{"value":"EDW","itemId":"","parameterType":"TEXT","name":"Connect_Name"},{"value":"\n       DRIVE_PRODUCT_ST_MODEL_DIM.APPLICATION_SEGMENT_ABBR as DRPRDST_APPLICATION_SEGMENT_1","itemId":"","parameterType":"TEXT","name":"Fields"},{"value":"","itemId":"","parameterType":"TEXT","name":"_WITH_"},{"value":"","itemId":"","parameterType":"TEXT","name":"output_folder"},{"value":"elib.all","itemId":"","parameterType":"DATASET","name":"DATASET"},{"value":"SAS7BDAT","itemId":"","parameterType":"TEXT","name":"OUTPUT_FILE_TYPE"},{"value":"ATHENA.PRODUCT_QUALIFICATIONS_FACT PRODUCT_QUALIFICATIONS_FACT\n     LEFT OUTER JOIN ATHENA.TEST_RECORD_FACT TEST_RECORD_FACT ON (PRODUCT_QUALIFICATIONS_FACT.PRODUCT_FAMILY = TEST_RECORD_FACT.ATHENA_FAMILY AND PRODUCT_QUALIFICATIONS_FACT.TEST_BED = TEST_RECORD_FACT.TEST_BED AND PRODUCT_QUALIFICATIONS_FACT.CONCAT_MATURITY = TEST_RECORD_FACT.CONCAT_MATURITY)\n     LEFT OUTER JOIN DIM.DRIVE_PRODUCT_ST_MODEL_DIM DRIVE_PRODUCT_ST_MODEL_DIM ON (TEST_RECORD_FACT.DRIVE_PRODUCT_ST_MODEL_KEY = DRIVE_PRODUCT_ST_MODEL_DIM.DRIVE_PRODUCT_ST_MODEL_KEY)","itemId":"","parameterType":"TEXT","name":"Table"},{"value":"WHERE DRIVE_PRODUCT_ST_MODEL_DIM.APPLICATION_SEGMENT_ABBR = SYSDATE-9\n\n ","itemId":"","parameterType":"TEXT","name":"_QUERY_"}],"node_id":"0cfa8194-01b8-4e19-ba77-fb53f2d2e571","ignore":false,"run_latest":"Y","whereString":"","editorType":"query","order_id":1,"description":"athena","addedDatasets":[],"workflow_desc":"athena","subjectArea":{"tableau_flag":false,"field_incremental_flag":false,"subject_area":"ATHENA","yrr_flag":false,"yield_flag":true,"slurm_category_key":1,"upsert_flag":false,"editable_flag":true,"pqa_flag":true,"partition_column":"","xml_path":"..\/..\/..\/webdata\/xml\/ATHENA.xml","spc_control_chart_flag":false,"id":"WorkflowBuilder.model.SubjectArea-4","quick_pick_required_flag":false,"query_builder_flag":true,"first_last_flag":false,"slurm_fairshare":250000,"edit_url":"CFE\/queryBuilder\/index.cfm?fuseaction=builder2&edit=TRUE&PID=#PID#","name":"ATHENA","spc_dppm_flag":false,"data_extraction_flag":false,"cb_source_type":"DB","rtp_flag":false,"subject_area_key":263,"connection_name":"EDW","environment_flag":3,"incremental_flag":true,"odtv_analysis_flag":false}}];
-    return {
+    return res.status(OK).json({
         "status": 200,
         "message": `Mock Data for input --->
                     //pid: E9005404
@@ -437,7 +431,7 @@ export const getAddedGroupProgram = async (req: Request, res: Response) => {
         "i18n_code": 'en',
         "data": response,
         "meta": {}
-    }
+    })
     // try {
     //     const result = await orm.get(req.originalUrl);
     //     return res.status(OK).json(result);
@@ -508,14 +502,14 @@ export const getMetadata = async (req: Request, res: Response) => {
                                     "E_MAIL_WORK":"poonam.rohani@seagate.com"},
                      "builderVersion":1.5}`;
 
-    return {
+    return res.status(OK).json({
         "status": 200,
         "message": "Mock Data for input -- pid: E9005413 --- takes pid generated from submitRequest/save as workflow button",
         "message_code": "",
         "i18n_code": 'en',
         "data": response,
         "meta": {}
-    }
+    })
 
     // try {
     //     const result = await orm.get(req.originalUrl);
@@ -537,7 +531,7 @@ export const getDatasetsTree = async (req: Request, res: Response) => {
     node: root
      */
 
-    return {
+    return res.status(OK).json({
         "status": 200,
         "message": `Mock Data for input -- pid: personal
         method: getDatasetsTree
@@ -546,6 +540,6 @@ export const getDatasetsTree = async (req: Request, res: Response) => {
         "i18n_code": 'en',
         "data": [],
         "meta": {}
-    }
+    })
 
 }

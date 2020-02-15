@@ -93,9 +93,9 @@ router.get('/groups',WorflowBuilderController.getGroups);
 router.get('/groupPrograms',WorflowBuilderController.getGroupPrograms);
 
 /**
- *  Get request - "POST /wfb/getAddedGroupProgram" -------//Maps to getGroupProgram
+ *  Get request - "GET /wfb/getAddedGroupProgram" -------//Maps to getGroupProgram
  **/
-router.post('/addedGroupProgram',WorflowBuilderController.getAddedGroupProgram);
+router.get('/addedGroupProgram',WorflowBuilderController.getAddedGroupProgram);
 
 /**
  *  GET metadata - "GET /wfb/metadata"
