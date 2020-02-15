@@ -40,7 +40,7 @@ router.get('/subjectAreaPermissions/:subjectArea',WorflowBuilderController.getSu
 /**
  *  Get All Jobs - "GET /wfb/jobs"
  **/
-router.get('/jobs',WorflowBuilderController.getJobs);
+router.post('/jobs',WorflowBuilderController.getJobs);
 
 /**
  *  Get details of default columns - "GET /wfb/detailDefaultColumns"
@@ -93,9 +93,9 @@ router.get('/groups',WorflowBuilderController.getGroups);
 router.get('/groupPrograms',WorflowBuilderController.getGroupPrograms);
 
 /**
- *  Get request - "GET /wfb/getAddedGroupProgram" -------//Maps to getGroupProgram
+ *  Get request - "GET /wfb/getGroupProgram"
  **/
-router.get('/addedGroupProgram',WorflowBuilderController.getAddedGroupProgram);
+router.get('/getGroupProgram',WorflowBuilderController.getGroupProgram);
 
 /**
  *  GET metadata - "GET /wfb/metadata"
