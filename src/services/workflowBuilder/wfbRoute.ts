@@ -95,7 +95,7 @@ router.get('/groupPrograms',WorflowBuilderController.getGroupPrograms);
 /**
  *  Get request - "GET /wfb/getGroupProgram"
  **/
-router.get('/getGroupProgram',WorflowBuilderController.getGroupProgram);
+router.get('/groupProgram',WorflowBuilderController.getGroupProgram);
 
 /**
  *  GET metadata - "GET /wfb/metadata"
