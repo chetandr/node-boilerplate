@@ -324,24 +324,15 @@ export const getSettings = async (req: Request, res: Response) => {
  */
 export const getUser = async (req: Request, res: Response) => {
 
-    return res.status(OK).json({
-        "status": 200,
-        "message": "Mock Data",
-        "message_code": "",
-        "i18n_code": 'en',
-        "data": [{"group_array":[],"additional_info":{},"e_mail_work":"chetan.rane@seagate.com","global_id":"729016","name":"Chetan Rane"}],
-        "meta": {}
-    })
-
-    // try {
-    //     const result = await orm.get(req.originalUrl);
-    //     return res.status(OK).json(result);
-    // } catch (err) {
-    //     logger.error(err.message, err);
-    //     return res.status(BAD_REQUEST).json({
-    //         error: err.message,
-    //     });
-    // }
+    try {
+        const result = await orm.get(req.originalUrl);
+        return res.status(OK).json(result);
+    } catch (err) {
+        logger.error(err.message, err);
+        return res.status(BAD_REQUEST).json({
+            error: err.message,
+        });
+    }
 };
 
 /**

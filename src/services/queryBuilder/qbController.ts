@@ -30,38 +30,15 @@ export const saveQueryBuilder = async (req: Request, res: Response) => {
 
 export const getHadoopMetaData = async (req: Request, res: Response) => {
 
-    //Mock Data
-
-    let result = [
-        {"created_date":"2019-07-08 03:23:49.0","gid":"534180","last_updated_date":"2019-12-30 17:06:42.0","pid":"E1046926","result_description":"E1046926_Motor_join","rnum":"1","row_count":"4339725","table_alias_name":"Motor_join","table_name":"E1046926_Motor_join","total":"1945","workflow_node_id":"ef5b87fd-1375-4e54-a8fc-cd5edcc61251"},
-        {"created_date":"2019-06-26 22:09:14.0","gid":"534180","last_updated_date":"2019-12-30 22:36:47.0","pid":"E1046926","result_description":"drive sn for linking with motor sn","rnum":"2","row_count":"-1","table_alias_name":"ort_cert_drive_sn","table_name":"E1046926_ort_cert_drive_sn","total":"1945","workflow_node_id":"1431330d-5a4c-4129-aeca-5d2dd17577e6"},
-        {"created_date":"2017-11-28 03:45:38.0","gid":"503180","last_updated_date":"2017-11-28 03:45:38.0","pid":"E1050480","result_description":"None","rnum":"3","row_count":"33556","table_alias_name":"None","table_name":"E1050480_cust","total":"1945","workflow_node_id":"8cf6d719-49ff-4184-be0d-15943a81208e"},
-        {"created_date":"2017-11-28 03:19:58.0","gid":"503180","last_updated_date":"2017-11-28 03:19:58.0","pid":"E1050480","result_description":"Pull PopMon Data from Hadoop","rnum":"4","row_count":"60887419","table_alias_name":"hadoop","table_name":"E1050480_hadoop","total":"1945","workflow_node_id":"bdf9861f-5568-4826-8486-31f27aca2206"}]
-
-    return res.status(OK).json({
-        "status": 200,
-        "message": "Mock Data",
-        "message_code": "",
-        "i18n_code": 'en',
-        "data": result,
-        "meta": {
-            "total": (result.length) ? result.length : 0,
-            "page": req.body.page,
-            "limit": req.body.limit,
-            "sort_by": req.body.sort_by,
-            "order": req.body.order
-        }
-    })
-
-    // try {
-    //     const result = await orm.get(req.originalUrl);
-    //     return res.status(OK).json(result);
-    // } catch (err) {
-    //     logger.error(err.message, err);
-    //     return res.status(BAD_REQUEST).json({
-    //         error: err.message,
-    //     });
-    // }
+    try {
+        const result = await orm.get(req.originalUrl);
+        return res.status(OK).json(result);
+    } catch (err) {
+        logger.error(err.message, err);
+        return res.status(BAD_REQUEST).json({
+            error: err.message,
+        });
+    }
 };
 
 export const getHadoopTableType = async (req: Request, res: Response) => {
