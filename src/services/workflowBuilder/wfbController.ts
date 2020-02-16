@@ -468,15 +468,14 @@ export const getDatasetsTree = async (req: Request, res: Response) => {
     /**
      * INPUT
      * pid: personal
-    method: getDatasetsTree
     node: root
      */
 
     return res.status(OK).json({
         "status": 200,
-        "message": `Mock Data for input -- pid: personal
-        method: getDatasetsTree
-        node: root`,
+        "message": `Mock Data for input -- 
+                    //pid: personal
+                    //node: root`,
         "message_code": "",
         "i18n_code": 'en',
         "data": [],
