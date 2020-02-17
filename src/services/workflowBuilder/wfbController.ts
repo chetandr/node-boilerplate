@@ -242,7 +242,7 @@ export const getProgramSQL = async (req: Request, res: Response) => {
 
 export const publishFlow = async (req: Request, res: Response) => {
     try {
-        const result = await orm.post(req.originalUrl, req.body);
+        const result = await orm.put(req.originalUrl, req.body);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);

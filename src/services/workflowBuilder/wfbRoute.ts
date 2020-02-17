@@ -65,7 +65,7 @@ router.get('/programSQL',WorflowBuilderController.getProgramSQL);
 /**
  *  Save publish flow - "GET /wfb/publishFlow"
  **/
-router.post('/publishFlow',WorflowBuilderController.publishFlow);
+router.put('/publishFlow',WorflowBuilderController.publishFlow);
 
 /**
  *  Save request - "GET /wfb/submitRequest"
