@@ -3,6 +3,7 @@ import { logger } from '@middleware';
 import { BAD_REQUEST, CREATED, OK } from 'http-status-codes';
 //import { paramMissingError, verifyJwt } from '@middleware';
 import * as orm from "../../ormapis/requests";
+import { datasetsTreeData, metadataData } from "../../mock";
 
 /**
  * 
@@ -395,53 +396,7 @@ export const getMetadata = async (req: Request, res: Response) => {
     //Response has Pid on Save this workflow -- updates existing worflow
     //does not have Pid on Save as new workflow -- creates new workflow
 
-    let response = `{"isInstance":false,
-                     "gid":739374,
-                     "groups":[{"jobs":[],
-                                "programs":[{"parent_order_id":"",
-                                             "order_id":1,
-                                             "outputParameters":[],
-                                             "stop_on_error":true,
-                                             "run_version":50061,
-                                             "parameters":[],
-                                             "node_id":"4a87ffee-02b9-4a48-bad2-4f43cc0a4e03",
-                                             "ignore":false,"run_latest":"N"}],
-                                "tempId":"grouppanel-1066",
-                                "title":"Group 1"}],
-                     "description":"Test2222",
-                     "run":false,
-                     "pid":"E9005413",
-                     "controlInfo":{"REQUEST_DT":"February, 14 2020 02:57:40",
-                                    "SUBJECT_AREA":"WORKFLOW",
-                                    "EMPLOYEE_LAST_NAME":"Rohani",
-                                    "SCHEDULE_START_DATE":"",
-                                    "JOB_CATEGORY":"OTHER",
-                                    "OUTPUT_FOLDERS":"",
-                                    "SCHEDULE_END_DATE":"",
-                                    "GLOBAL_ID":739374,
-                                    "CRON":"",
-                                    "STATUS":"SAVED",
-                                    "DATE_LAST_RUN":"",
-                                    "PUBLISHED":"",
-                                    "DESCRIPTION":"Test2222",
-                                    "SCHEDULE":"",
-                                    "EMPLOYEE_FULL_NAME":"Poonam Rohani",
-                                    "RETENTION":35,
-                                    "CHANGE_DT":"",
-                                    "CREATION_DT":"February, 14 2020 02:57:40",
-                                    "PID":"E9005413",
-                                    "DEDICATED_SERVER":"",
-                                    "UPDATE_DT":"",
-                                    "EMPLOYEE_FIRST_NAME":"Poonam",
-                                    "WHY_NOT_RUN":"",
-                                    "DELETED_INACTIVE_INDICATOR":"",
-                                    "OCCURRENCES":"",
-                                    "SOURCE":"Workflow Builder",
-                                    "JOB_TYPE":"P",
-                                    "SOURCE_PID":"",
-                                    "INTERACTIVE":"N",
-                                    "E_MAIL_WORK":"poonam.rohani@seagate.com"},
-                     "builderVersion":1.5}`;
+    let response = metadataData;
 
     return res.status(OK).json({
         "status": 200,
@@ -478,7 +433,7 @@ export const getDatasetsTree = async (req: Request, res: Response) => {
                     //node: root`,
         "message_code": "",
         "i18n_code": 'en',
-        "data": [],
+        "data": datasetsTreeData,
         "meta": {}
     })
 
