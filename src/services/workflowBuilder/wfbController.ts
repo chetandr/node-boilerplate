@@ -438,3 +438,15 @@ export const getDatasetsTree = async (req: Request, res: Response) => {
     })
 
 }
+
+export const validateSql = async (req: Request, res: Response) => {
+    try {
+        const result = await orm.post(req.originalUrl, req.body);
+        return res.status(OK).json(result);
+    } catch (err) {
+        logger.error(err.message, err);
+        return res.status(BAD_REQUEST).json({
+            error: err.message,
+        });
+    }
+};

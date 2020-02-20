@@ -72,28 +72,28 @@ export const getXML = async (req: Request, res: Response) => {
     //filePath: ../../../webdata/xml/ATHENA.xml
     //subjectArea: ATHENA
 
-    let result = xmlData;
+    // let result = xmlData;
 
-    return res.status(OK).json({
-        "status": 200,
-        "message": `Mock Data for input -->
-                    //filePath: ../../../webdata/xml/ATHENA.xml
-                    //subjectArea: ATHENA`,
-        "message_code": "",
-        "i18n_code": 'en',
-        "data": result,
-        "meta": {}
-    })
+    // return res.status(OK).json({
+    //     "status": 200,
+    //     "message": `Mock Data for input -->
+    //                 //filePath: ../../../webdata/xml/ATHENA.xml
+    //                 //subjectArea: ATHENA`,
+    //     "message_code": "",
+    //     "i18n_code": 'en',
+    //     "data": result,
+    //     "meta": {}
+    // })
 
-    // try {
-    //     const result = await orm.get(req.originalUrl);
-    //     return res.status(OK).json(result);
-    // } catch (err) {
-    //     logger.error(err.message, err);
-    //     return res.status(BAD_REQUEST).json({
-    //         error: err.message,
-    //     });
-    // }
+    try {
+        const result = await orm.get(req.originalUrl);
+        return res.status(OK).json(result);
+    } catch (err) {
+        logger.error(err.message, err);
+        return res.status(BAD_REQUEST).json({
+            error: err.message,
+        });
+    }
 };
 
 export const getColumns = async (req: Request, res: Response) => {

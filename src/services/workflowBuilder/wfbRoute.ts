@@ -108,6 +108,11 @@ router.get('/metadata',WorflowBuilderController.getMetadata);
 router.get('/datasetstree',WorflowBuilderController.getDatasetsTree);
 
 
+/**
+ *  GET metadata - "GET /wfb/validatesql"
+ **/
+router.post('/validatesql',WorflowBuilderController.validateSql);
+
 
 
 export default router;
