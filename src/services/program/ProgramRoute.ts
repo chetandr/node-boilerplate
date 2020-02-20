@@ -9,29 +9,29 @@ const router = Router();
 router.get('/programOwners',ProgramController.getProgramOwners);
 
 /**
- *  Get All programFileType - "GET /prg/programFileType/:subjectArea"
+ *  Get All programFileType - "GET /prg/programFileType"
  **/
 router.get('/programFileType',ProgramController.getProgramFileType);
 
 /**
- *  Get All programVersions - "GET /prg/programVersions/:programKey"
+ *  Get All programVersions - "GET /prg/programVersions"
  **/
-router.get('/programVersions/:programKey',ProgramController.getProgramVersions);
+router.get('/programVersions',ProgramController.getProgramVersions);
 
 /**
- *  Get All programInputPrompts - "GET /prg/programInputPrompts/:programKey"
+ *  Get All programInputPrompts - "GET /prg/programInputPrompts"
  **/
-router.get('/programInputPrompts/:programKey',ProgramController.getProgramInputPrompts);
+router.get('/programInputPrompts',ProgramController.getProgramInputPrompts);
 
 /**
- *  Get All programOutputPrompts - "GET /prg/programOutputPrompts/:programKey"
+ *  Get All programOutputPrompts - "GET /prg/programOutputPrompts"
  **/
-router.get('/programOutputPrompts/:programKey',ProgramController.getProgramOutputPrompts);
+router.get('/programOutputPrompts',ProgramController.getProgramOutputPrompts);
 
 /**
- *  Get All programOutputParameters - "GET /prg/programOutputParameters/:programKey"
+ *  Get All programOutputParameters - "GET /prg/programOutputParameters"
  **/
-router.get('/programOutputParameters/:programKey',ProgramController.getProgramOutputParameters);
+router.get('/programOutputParameters',ProgramController.getProgramOutputParameters);
 
 /**
  *  Get program types tree - "GET /prg/programTypesTree"

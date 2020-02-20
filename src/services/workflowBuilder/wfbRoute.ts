@@ -28,14 +28,14 @@ router.get('/yieldSubjectAreas', WorflowBuilderController.getSubjectAreas);
 router.get('/owners', WorflowBuilderController.getOwners);
 
 /**
- *  Get subjectArea - "GET /wfb/subjectArea/:subjectArea"
+ *  Get subjectArea - "GET /wfb/subjectArea"
  **/
-router.get('/subjectArea/:mineOnly/:subjectArea',WorflowBuilderController.getSubjectArea);
+router.get('/subjectArea',WorflowBuilderController.getSubjectArea);
 
 /**
- *  Get All subjectAreaPermissions - "GET /wfb/subjectAreaPermissions/:subjectArea"
+ *  Get All subjectAreaPermissions - "GET /wfb/subjectAreaPermissions"
  **/
-router.get('/subjectAreaPermissions/:subjectArea',WorflowBuilderController.getSubjectAreaPermissions);
+router.get('/subjectAreaPermissions',WorflowBuilderController.getSubjectAreaPermissions);
 
 /**
  *  Get All Jobs - "GET /wfb/jobs"
