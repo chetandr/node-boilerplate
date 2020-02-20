@@ -1,7 +1,7 @@
 export const datasetsTreeData = `
 {"id":"root","children":[{"text":"None","id":"/seamnt/sasdata-dev/sasdata/ecube/results/E9005417/None","children":[]},{"path":"/seamnt/sasdata-dev/sasdata/ecube/results/E9005417","date_modified":"02/14/2020 11:44:05 AM","path_and_name":"&Results_Path/E9005417/all.sas7bdat","size":"131072","text":"all.sas7bdat","id":"&Results_Path/E9005417/all.sas7bdat","leaf":true,"name":"all.sas7bdat"}]}
 `
-export const metadataData = `{"isInstance":false,
+export const metadataData = {"isInstance":false,
 "gid":739374,
 "groups":[{"jobs":[],
            "programs":[{"parent_order_id":"",
@@ -47,7 +47,7 @@ export const metadataData = `{"isInstance":false,
                "SOURCE_PID":"",
                "INTERACTIVE":"N",
                "E_MAIL_WORK":"poonam.rohani@seagate.com"},
-"builderVersion":1.5}`;
+"builderVersion":1.5};
 
 export const xmlData = 
 {
