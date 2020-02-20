@@ -11,7 +11,7 @@ router.get('/programOwners',ProgramController.getProgramOwners);
 /**
  *  Get All programFileType - "GET /prg/programFileType/:subjectArea"
  **/
-router.get('/programFileType/:subjectArea',ProgramController.getProgramFileType);
+router.get('/programFileType',ProgramController.getProgramFileType);
 
 /**
  *  Get All programVersions - "GET /prg/programVersions/:programKey"
