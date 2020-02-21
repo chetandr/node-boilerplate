@@ -445,8 +445,6 @@ export const validateSql = async (req: Request, res: Response) => {
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
-        return res.status(BAD_REQUEST).json({
-            error: err.message,
-        });
+        return res.status(err.statusCode).json(err.error);
     }
 };
