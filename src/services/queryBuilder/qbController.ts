@@ -68,7 +68,7 @@ export const getXML = async (req: Request, res: Response) => {
 
 export const getColumns = async (req: Request, res: Response) => {
     try {
-        const result = await orm.get(req.originalUrl);
+        const result = await orm.post(req.originalUrl,req.body);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
