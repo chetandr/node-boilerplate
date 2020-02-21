@@ -18,9 +18,7 @@ export const getCategories = async (req: Request, res: Response) => {
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
-        return res.status(BAD_REQUEST).json({
-            error: err.message,
-        });
+        return res.status(err.statusCode).json(err.error);
     }
 };
 
@@ -37,9 +35,7 @@ export const getStatuses = async (req: Request, res: Response) => {
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
-        return res.status(BAD_REQUEST).json({
-            error: err.message,
-        });
+        return res.status(err.statusCode).json(err.error);
     }
 };
 
@@ -56,9 +52,7 @@ export const getSubjectAreas = async (req: Request, res: Response) => {
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
-        return res.status(BAD_REQUEST).json({
-            error: err.message,
-        });
+        return res.status(err.statusCode).json(err.error);
     }
 };
 
@@ -74,9 +68,7 @@ export const getYieldSubjectAreas = async (req: Request, res: Response) => {
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
-        return res.status(BAD_REQUEST).json({
-            error: err.message,
-        });
+        return res.status(err.statusCode).json(err.error);
     }
 };
 
@@ -93,9 +85,7 @@ export const getOwners = async (req: Request, res: Response) => {
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
-        return res.status(BAD_REQUEST).json({
-            error: err.message,
-        });
+        return res.status(err.statusCode).json(err.error);
     }
 };
 
@@ -113,9 +103,7 @@ export const getSubjectArea = async (req: Request, res: Response) => {
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
-        return res.status(BAD_REQUEST).json({
-            error: err.message,
-        });
+        return res.status(err.statusCode).json(err.error);
     }
 };
 
@@ -132,9 +120,7 @@ export const getSubjectAreaPermissions = async (req: Request, res: Response) => 
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
-        return res.status(BAD_REQUEST).json({
-            error: err.message,
-        });
+        return res.status(err.statusCode).json(err.error);
     }
 };
 
@@ -151,9 +137,7 @@ export const getJobs = async (req: Request, res: Response) => {
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
-        return res.status(BAD_REQUEST).json({
-            error: err.message,
-        });
+        return res.status(err.statusCode).json(err.error);
     }
 };
 
@@ -170,9 +154,7 @@ export const getDetailDefaultColumns = async (req: Request, res: Response) => {
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
-        return res.status(BAD_REQUEST).json({
-            error: err.message,
-        });
+        return res.status(err.statusCode).json(err.error);
     }
 };
 
@@ -189,9 +171,7 @@ export const getSpecificProgram = async (req: Request, res: Response) => {
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
-        return res.status(BAD_REQUEST).json({
-            error: err.message,
-        });
+        return res.status(err.statusCode).json(err.error);
     }
 };
 
@@ -208,9 +188,7 @@ export const getDefaultColumns = async (req: Request, res: Response) => {
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
-        return res.status(BAD_REQUEST).json({
-            error: err.message,
-        });
+        return res.status(err.statusCode).json(err.error);
     }
 };
 
@@ -227,9 +205,7 @@ export const getProgramSQL = async (req: Request, res: Response) => {
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
-        return res.status(BAD_REQUEST).json({
-            error: err.message,
-        });
+        return res.status(err.statusCode).json(err.error);
     }
 };
 
@@ -246,9 +222,7 @@ export const publishFlow = async (req: Request, res: Response) => {
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
-        return res.status(BAD_REQUEST).json({
-            error: err.message,
-        });
+        return res.status(err.statusCode).json(err.error);
     }
 };
 
@@ -311,9 +285,7 @@ export const getSettings = async (req: Request, res: Response) => {
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
-        return res.status(BAD_REQUEST).json({
-            error: err.message,
-        });
+        return res.status(err.statusCode).json(err.error);
     }
 };
 
@@ -330,9 +302,7 @@ export const getUser = async (req: Request, res: Response) => {
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
-        return res.status(BAD_REQUEST).json({
-            error: err.message,
-        });
+        return res.status(err.statusCode).json(err.error);
     }
 };
 
@@ -348,9 +318,7 @@ export const getGroups = async (req: Request, res: Response) => {
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
-        return res.status(BAD_REQUEST).json({
-            error: err.message,
-        });
+        return res.status(err.statusCode).json(err.error);
     }
 };
 
@@ -367,9 +335,7 @@ export const getGroupPrograms = async (req: Request, res: Response) => {
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
-        return res.status(BAD_REQUEST).json({
-            error: err.message,
-        });
+        return res.status(err.statusCode).json(err.error);
     }
 };
 
@@ -379,9 +345,7 @@ export const getGroupProgram = async (req: Request, res: Response) => {
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
-        return res.status(BAD_REQUEST).json({
-            error: err.message,
-        });
+        return res.status(err.statusCode).json(err.error);
     }
 };
 
