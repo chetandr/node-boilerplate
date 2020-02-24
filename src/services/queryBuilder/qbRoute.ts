@@ -9,7 +9,7 @@ router.get('/hadoopTableType', queryBuilderController.getHadoopTableType);
 router.get('/failDesc', queryBuilderController.getFailDesc);
 router.get('/xml', queryBuilderController.getXML);
 router.post('/columns', queryBuilderController.getColumns);
-router.get('/distinctValues', queryBuilderController.getDistinctValues);
+router.post('/distinctValues', queryBuilderController.getDistinctValues);
 router.get('/hadoopColumn/:tblname', queryBuilderController.getHadoopColumn);
 router.get('/tableColumnInfo', queryBuilderController.getTableColumnInfo);
 router.post('/tableObjectInfo', queryBuilderController.getTableObjectInfo);
