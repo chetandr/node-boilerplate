@@ -3,6 +3,7 @@ import express from 'express';
 import logger from 'morgan';
 import BaseRouter from './routes';
 import { verifyJwt } from '@middleware'
+import cors from 'cors';
 
 // Init express
 const app = express();
@@ -14,12 +15,7 @@ app.use(cookieParser());
 //app.use(verifyJwt)
 
 /** To resolve CORS issue, this should be use before base router */
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*"); //Replace * with domain for white listing.
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-});
-
+app.use(cors())
 
 app.use('/', BaseRouter);
 /**
