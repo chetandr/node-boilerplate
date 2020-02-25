@@ -18,5 +18,6 @@ router.get('/hadoopTablesColumns/:tblname', queryBuilderController.getHadoopTabl
 router.get('/appendedColumns', queryBuilderController.getAppendedColumns);
 router.get('/programOrderId', queryBuilderController.getProgramOrderId);
 router.get('/primaryKeys', queryBuilderController.getPrimaryKeys);
+router.get('/tableData', queryBuilderController.getTableData);
 
 export default router;
