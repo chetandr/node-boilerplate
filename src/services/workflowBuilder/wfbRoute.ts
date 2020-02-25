@@ -103,9 +103,9 @@ router.get('/groupProgram',WorflowBuilderController.getGroupProgram);
 router.get('/metadata',WorflowBuilderController.getMetadata);
 
 /**
- *  GET metadata - "GET /wfb/datasetstree"
+ *  GET metadata - "GET /wfb/datasetsTree"
  **/
-router.get('/datasetstree',WorflowBuilderController.getDatasetsTree);
+router.get('/datasetsTree',WorflowBuilderController.getDatasetsTree);
 
 
 /**

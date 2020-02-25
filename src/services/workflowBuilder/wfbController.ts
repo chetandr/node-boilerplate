@@ -390,16 +390,24 @@ export const getDatasetsTree = async (req: Request, res: Response) => {
     node: root
      */
 
-    return res.status(OK).json({
-        "status": 200,
-        "message": `Mock Data for input -- 
-                    //pid: personal
-                    //node: root`,
-        "message_code": "",
-        "i18n_code": 'en',
-        "data": datasetsTreeData,
-        "meta": {}
-    })
+    // return res.status(OK).json({
+    //     "status": 200,
+    //     "message": `Mock Data for input -- 
+    //                 //pid: personal
+    //                 //node: root`,
+    //     "message_code": "",
+    //     "i18n_code": 'en',
+    //     "data": datasetsTreeData,
+    //     "meta": {}
+    // })
+    try {
+        console.log(req.query);
+        const result = await orm.get(req.originalUrl);
+        return res.status(OK).json(result);
+    } catch (err) {
+        logger.error(err.message, err);
+        return res.status(err.statusCode).json(err.error);
+    }
 
 }
 
