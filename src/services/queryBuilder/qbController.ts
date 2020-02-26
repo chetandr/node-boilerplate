@@ -118,11 +118,13 @@ export const getTableObjectInfo = async (req: Request, res: Response) => {
 };
 
 export const getTableData = async (req: Request, res: Response) => {
-
-    const tableData = fs.readFileSync(process.cwd() + "\\src\\services\\queryBuilder\\getTableData.json").toString('utf8')
-    return res.status(OK).json(JSON.parse(tableData))
-
-    
+    try {
+        const result = await orm.get(req.originalUrl);
+        return res.status(OK).json(result);
+    } catch (err) {
+        logger.error(err.message, err);
+        return res.status(err.statusCode).json(err.error);
+    }
 }
 
 export const getHadoopTablesColumns = async (req: Request, res: Response) => {
