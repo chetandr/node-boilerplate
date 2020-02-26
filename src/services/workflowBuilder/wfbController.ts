@@ -357,29 +357,13 @@ export const getGroupProgram = async (req: Request, res: Response) => {
  */
 export const getMetadata = async (req: Request, res: Response) => {
 
-    //Response has Pid on Save this workflow -- updates existing worflow
-    //does not have Pid on Save as new workflow -- creates new workflow
-
-    let response = metadataData;
-
-    return res.status(OK).json({
-        "status": 200,
-        "message": "Mock Data for input -- pid: E9005413 --- takes pid generated from submitRequest/save as workflow button",
-        "message_code": "",
-        "i18n_code": 'en',
-        "data": response,
-        "meta": {}
-    })
-
-    // try {
-    //     const result = await orm.get(req.originalUrl);
-    //     return res.status(OK).json(result);
-    // } catch (err) {
-    //     logger.error(err.message, err);
-    //     return res.status(BAD_REQUEST).json({
-    //         error: err.message,
-    //     });
-    // }
+    try {
+        const result = await orm.get(req.originalUrl);
+        return res.status(OK).json(result);
+    } catch (err) {
+        logger.error(err.message, err);
+        return res.status(err.statusCode).json(err.error);
+    }
 };
 
 
@@ -390,16 +374,24 @@ export const getDatasetsTree = async (req: Request, res: Response) => {
     node: root
      */
 
-    return res.status(OK).json({
-        "status": 200,
-        "message": `Mock Data for input -- 
-                    //pid: personal
-                    //node: root`,
-        "message_code": "",
-        "i18n_code": 'en',
-        "data": datasetsTreeData,
-        "meta": {}
-    })
+    // return res.status(OK).json({
+    //     "status": 200,
+    //     "message": `Mock Data for input -- 
+    //                 //pid: personal
+    //                 //node: root`,
+    //     "message_code": "",
+    //     "i18n_code": 'en',
+    //     "data": datasetsTreeData,
+    //     "meta": {}
+    // })
+    try {
+        console.log(req.query);
+        const result = await orm.get(req.originalUrl);
+        return res.status(OK).json(result);
+    } catch (err) {
+        logger.error(err.message, err);
+        return res.status(err.statusCode).json(err.error);
+    }
 
 }
 
