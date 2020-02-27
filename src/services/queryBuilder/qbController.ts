@@ -176,3 +176,13 @@ export const getHadoopSchema = async (req: Request, res: Response) => {
         return res.status(err.statusCode).json(err.error);
     }
 };
+
+export const getHadoopTableData = async (req: Request, res: Response) => {
+    try {
+        const result = await orm.get(req.originalUrl);
+        return res.status(OK).json(result);
+    } catch (err) {
+        logger.error(err.message, err);
+        return res.status(err.statusCode).json(err.error);
+    }
+};

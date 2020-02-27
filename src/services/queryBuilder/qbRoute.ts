@@ -22,5 +22,6 @@ router.get('/programOrderId', queryBuilderController.getProgramOrderId);
 router.get('/primaryKeys', queryBuilderController.getPrimaryKeys);
 router.get('/tableData', queryBuilderController.getTableData);
 router.get('/hadoopschema', queryBuilderController.getTableData);
+router.get('/hadoopTableData', queryBuilderController.getHadoopTableData);
 
 export default router;
