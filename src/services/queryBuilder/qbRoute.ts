@@ -21,7 +21,8 @@ router.get('/appendedColumns', queryBuilderController.getAppendedColumns);
 router.get('/programOrderId', queryBuilderController.getProgramOrderId);
 router.get('/primaryKeys', queryBuilderController.getPrimaryKeys);
 router.get('/tableData', queryBuilderController.getTableData);
-router.get('/hadoopschema', queryBuilderController.getTableData);
 router.get('/hadoopTableData', queryBuilderController.getHadoopTableData);
+router.get('/hadoopschema', queryBuilderController.getHadoopSchema);
+router.post('/employees', queryBuilderController.getEmployees);
 
 export default router;

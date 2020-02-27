@@ -186,3 +186,13 @@ export const getHadoopTableData = async (req: Request, res: Response) => {
         return res.status(err.statusCode).json(err.error);
     }
 };
+
+export const getEmployees = async (req: Request, res: Response) => {
+    try {
+        const result = await orm.post(req.originalUrl, req.body);
+        return res.status(OK).json(result);
+    } catch (err) {
+        logger.error(err.message, err);
+        return res.status(err.statusCode).json(err.error);
+    }
+};
