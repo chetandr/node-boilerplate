@@ -3,6 +3,7 @@ import { logger } from './Logger';
 const ajv = new Ajv({ allErrors: true });
 import { NextFunction, Request, Response } from 'express';
 import { BAD_REQUEST } from 'http-status-codes';
+import { apiResponse } from '@middleware';
 
 /**
  * This is a middleware function which validates JSON for the POST/PUT/PATCH methods
@@ -18,9 +19,8 @@ export const validateSchema = (pathName: any, jsonArr: any) => {
             next()
         } else {
             logger.error(ajv.errorsText(validate.errors), ajv.errorsText(validate.errors));
-            return res.status(BAD_REQUEST).json({
-                error: ajv.errorsText(validate.errors),
-            });
+            let response = apiResponse("failure", "Validation failed", "", [], [], validate.errors)
+            return res.status(BAD_REQUEST).json(response);
         }
     }
 }

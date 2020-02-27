@@ -18,4 +18,19 @@ export const getRandomInt = () => {
     return Math.floor(Math.random() * 1_000_000_000_000);
 };
 
+export const apiResponse = (status:any = '',msg:any='', msg_code:any='', data:any = [], meta:any= [], errors:any = []): object => {
+    let response: any = {
+        "status": status,
+        "message": msg,
+        "message_code": msg_code,
+        "i18n_code": 'en',
+        "data": data,
+        "meta": meta
+    }
+
+    if (errors) response.errors = errors
+    return response
+};
+
+
 
