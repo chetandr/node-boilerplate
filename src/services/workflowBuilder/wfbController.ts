@@ -235,40 +235,15 @@ export const publishFlow = async (req: Request, res: Response) => {
 
 export const submitRequest = async (req: Request, res: Response) => {
 
-    //Input -- For Save as new workflow
-    /*jobMetadata: {"builderVersion":1.5,"run":false,"pid":"","isInstance":false,
-                    "description":"Test2222","groups":[{"title":"Group 1","jobs":[],
-                    "programs":[{"run_latest":"N","run_version":"50061","parameters":[],"outputParameters":[],
-                            "node_id":"4a87ffee-02b9-4a48-bad2-4f43cc0a4e03","order_id":1,
-                            "parent_order_id":"","stop_on_error":true,"ignore":false}],
-                    "tempId":"grouppanel-1066"}]}*/
-    // For submit as new workflow
-    /*
-    jobMetadata: {"sourcePID":"E9005413","builderVersion":1.5,"run":true,"pid":"","isInstance":false,"description":"Test2222",
-                    "groups":[{"title":"Group 1","jobs":[],"programs":[{"parent_order_id":"","order_id":1,"workflow_name":"",
-                    "outputParameters":[],"stop_on_error":true,"run_version":50061,"parameters":[],
-                    "node_id":"7097b032-8358-45ee-a633-13b150e911f6","workflow_desc":"","ignore":false,"run_latest":"N"}],
-                    "tempId":"grouppanel-1167"}]}
-    */
-
-    return res.status(OK).json({
-        "status": 200,
-        "message": "E9005413",
-        "message_code": "",
-        "i18n_code": 'en',
-        "data": [],
-        "meta": {}
-    })
-
-    // try {
-    //     const result = await orm.post(req.originalUrl, req.body);
-    //     return res.status(OK).json(result);
-    // } catch (err) {
-    //     logger.error(err.message, err);
-    //     return res.status(BAD_REQUEST).json({
-    //         error: err.message,
-    //     });
-    // }
+    try {
+        const result = await orm.post(req.originalUrl, req.body);
+        return res.status(OK).json(result);
+    } catch (err) {
+        logger.error(err.message, err);
+        return res.status(BAD_REQUEST).json({
+            error: err.message,
+        });
+    }
 };
 
 
@@ -368,31 +343,14 @@ export const getMetadata = async (req: Request, res: Response) => {
 
 
 export const getDatasetsTree = async (req: Request, res: Response) => {
-    /**
-     * INPUT
-     * pid: personal
-    node: root
-     */
 
-    // return res.status(OK).json({
-    //     "status": 200,
-    //     "message": `Mock Data for input -- 
-    //                 //pid: personal
-    //                 //node: root`,
-    //     "message_code": "",
-    //     "i18n_code": 'en',
-    //     "data": datasetsTreeData,
-    //     "meta": {}
-    // })
     try {
-        console.log(req.query);
         const result = await orm.get(req.originalUrl);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
         return res.status(err.statusCode).json(err.error);
     }
-
 }
 
 export const validateSql = async (req: Request, res: Response) => {
@@ -402,5 +360,5 @@ export const validateSql = async (req: Request, res: Response) => {
     } catch (err) {
         logger.error(err.message, err);
         return res.status(err.statusCode).json(err.error);
-    }
-};
+    } 
+}
