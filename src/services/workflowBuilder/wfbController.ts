@@ -230,19 +230,17 @@ export const publishFlow = async (req: Request, res: Response) => {
  * 
  * @param req 
  * @param res 
- * Get Jobs
+ * Get SubmitRequest
  */
 
 export const submitRequest = async (req: Request, res: Response) => {
 
     try {
-        const result = await orm.post(req.originalUrl, req.body);
+        const result = await orm.post(req.originalUrl,req.body);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
-        return res.status(BAD_REQUEST).json({
-            error: err.message,
-        });
+        return res.status(err.statusCode).json(err.error);
     }
 };
 
@@ -341,7 +339,6 @@ export const getMetadata = async (req: Request, res: Response) => {
     }
 };
 
-
 export const getDatasetsTree = async (req: Request, res: Response) => {
 
     try {
@@ -360,5 +357,5 @@ export const validateSql = async (req: Request, res: Response) => {
     } catch (err) {
         logger.error(err.message, err);
         return res.status(err.statusCode).json(err.error);
-    } 
+    }
 }

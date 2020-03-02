@@ -1,5 +1,5 @@
 import { Router } from "express"
-import * as WorflowBuilderController from './WfbController'
+import * as WorflowBuilderController from './wfbController'
 const router = Router();
 
 /**
