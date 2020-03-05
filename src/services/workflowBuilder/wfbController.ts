@@ -237,7 +237,7 @@ export const submitRequest = async (req: Request, res: Response) => {
 
     try {
         const result = await orm.post(req.originalUrl,req.body);
-        return res.status(OK).json(result);
+        return res.status(CREATED).json(result);
     } catch (err) {
         logger.error(err.message, err);
         return res.status(err.statusCode).json(err.error);

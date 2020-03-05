@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import QueryBuilderRouter from '../services/queryBuilder/qbRoute';
 
-import WorkflowBuilderRouter from '../services/workflowBuilder/WfbRoute';
+import WorkflowBuilderRouter from '../services/workflowBuilder/wfbRoute';
 import ProgramRouter from '../services/program/ProgramRoute';
 
 // Init router and path
