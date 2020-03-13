@@ -114,5 +114,9 @@ router.get('/datasetsTree',WorflowBuilderController.getDatasetsTree);
 router.post('/validatesql',WorflowBuilderController.validateSql);
 
 
+/**
+ *  GET wfb - "POST /wfb/findcolumns"
+ **/
+router.post('/findcolumns',WorflowBuilderController.findColumn);
 
 export default router;
