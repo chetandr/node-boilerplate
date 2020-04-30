@@ -14,7 +14,7 @@ import { datasetsTreeData, metadataData } from "../../mock";
 
 export const getCategories = async (req: Request, res: Response) => {
     try {
-        const result = await orm.get(req.originalUrl);
+        const result = await orm.get(req.originalUrl, req);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
@@ -31,7 +31,7 @@ export const getCategories = async (req: Request, res: Response) => {
 
 export const getStatuses = async (req: Request, res: Response) => {
     try {
-        const result = await orm.get(req.originalUrl);
+        const result = await orm.get(req.originalUrl, req);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
@@ -48,7 +48,7 @@ export const getStatuses = async (req: Request, res: Response) => {
 
 export const getSubjectAreas = async (req: Request, res: Response) => {
     try {        
-        const result = await orm.get(req.originalUrl);
+        const result = await orm.get(req.originalUrl, req);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
@@ -64,7 +64,7 @@ export const getSubjectAreas = async (req: Request, res: Response) => {
  */
 export const getYieldSubjectAreas = async (req: Request, res: Response) => {
     try {
-        const result = await orm.get(req.originalUrl);
+        const result = await orm.get(req.originalUrl, req);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
@@ -81,7 +81,7 @@ export const getYieldSubjectAreas = async (req: Request, res: Response) => {
 
 export const getOwners = async (req: Request, res: Response) => {
     try {
-        const result = await orm.get(req.originalUrl);
+        const result = await orm.get(req.originalUrl, req);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
@@ -99,7 +99,7 @@ export const getOwners = async (req: Request, res: Response) => {
 
 export const getSubjectArea = async (req: Request, res: Response) => {
     try {
-        const result = await orm.get(req.originalUrl);
+        const result = await orm.get(req.originalUrl, req);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
@@ -116,7 +116,7 @@ export const getSubjectArea = async (req: Request, res: Response) => {
 
 export const getSubjectAreaPermissions = async (req: Request, res: Response) => {
     try {
-        const result = await orm.get(req.originalUrl);
+        const result = await orm.get(req.originalUrl, req);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
@@ -133,7 +133,7 @@ export const getSubjectAreaPermissions = async (req: Request, res: Response) => 
 
 export const getJobs = async (req: Request, res: Response) => {
     try {
-        const result = await orm.post(req.originalUrl, req.body);
+        const result = await orm.post(req.originalUrl, req.body, req);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
@@ -150,7 +150,7 @@ export const getJobs = async (req: Request, res: Response) => {
 
 export const getDetailDefaultColumns = async (req: Request, res: Response) => {
     try {
-        const result = await orm.get(req.originalUrl);
+        const result = await orm.get(req.originalUrl, req);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
@@ -167,7 +167,7 @@ export const getDetailDefaultColumns = async (req: Request, res: Response) => {
 
 export const getSpecificProgram = async (req: Request, res: Response) => {
     try {
-        const result = await orm.get(req.originalUrl);
+        const result = await orm.get(req.originalUrl, req);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
@@ -184,7 +184,7 @@ export const getSpecificProgram = async (req: Request, res: Response) => {
 
 export const getDefaultColumns = async (req: Request, res: Response) => {
     try {
-        const result = await orm.get(req.originalUrl);
+        const result = await orm.get(req.originalUrl, req);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
@@ -201,7 +201,7 @@ export const getDefaultColumns = async (req: Request, res: Response) => {
 
 export const getProgramSQL = async (req: Request, res: Response) => {
     try {
-        const result = await orm.get(req.originalUrl);
+        const result = await orm.get(req.originalUrl, req);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
@@ -218,7 +218,7 @@ export const getProgramSQL = async (req: Request, res: Response) => {
 
 export const publishFlow = async (req: Request, res: Response) => {
     try {
-        const result = await orm.put(req.originalUrl, req.body);
+        const result = await orm.put(req.originalUrl, req.body, req);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
@@ -236,7 +236,7 @@ export const publishFlow = async (req: Request, res: Response) => {
 export const submitRequest = async (req: Request, res: Response) => {
 
     try {
-        const result = await orm.post(req.originalUrl,req.body);
+        const result = await orm.post(req.originalUrl, req.body, req);
         return res.status(CREATED).json(result);
     } catch (err) {
         logger.error(err.message, err);
@@ -254,7 +254,7 @@ export const submitRequest = async (req: Request, res: Response) => {
  */
 export const getSettings = async (req: Request, res: Response) => {
     try {
-        const result = await orm.get(req.originalUrl);
+        const result = await orm.get(req.originalUrl, req);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
@@ -271,7 +271,7 @@ export const getSettings = async (req: Request, res: Response) => {
 export const getUser = async (req: Request, res: Response) => {
 
     try {
-        const result = await orm.get(req.originalUrl);
+        const result = await orm.get(req.originalUrl, req);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
@@ -287,7 +287,7 @@ export const getUser = async (req: Request, res: Response) => {
  */
 export const getGroups = async (req: Request, res: Response) => {
     try {
-        const result = await orm.get(req.originalUrl);
+        const result = await orm.get(req.originalUrl, req);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
@@ -304,7 +304,7 @@ export const getGroups = async (req: Request, res: Response) => {
 export const getGroupPrograms = async (req: Request, res: Response) => {
     
     try {
-        const result = await orm.get(req.originalUrl);
+        const result = await orm.get(req.originalUrl, req);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
@@ -314,7 +314,7 @@ export const getGroupPrograms = async (req: Request, res: Response) => {
 
 export const getGroupProgram = async (req: Request, res: Response) => {
     try {
-        const result = await orm.get(req.originalUrl);
+        const result = await orm.get(req.originalUrl, req);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
@@ -331,7 +331,7 @@ export const getGroupProgram = async (req: Request, res: Response) => {
 export const getMetadata = async (req: Request, res: Response) => {
 
     try {
-        const result = await orm.get(req.originalUrl);
+        const result = await orm.get(req.originalUrl, req);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
@@ -342,7 +342,7 @@ export const getMetadata = async (req: Request, res: Response) => {
 export const getDatasetsTree = async (req: Request, res: Response) => {
 
     try {
-        const result = await orm.get(req.originalUrl);
+        const result = await orm.get(req.originalUrl, req);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
@@ -352,7 +352,7 @@ export const getDatasetsTree = async (req: Request, res: Response) => {
 
 export const validateSql = async (req: Request, res: Response) => {
     try {
-        const result = await orm.post(req.originalUrl, req.body);
+        const result = await orm.post(req.originalUrl, req.body, req);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
@@ -362,7 +362,7 @@ export const validateSql = async (req: Request, res: Response) => {
 
 export const findColumn = async (req: Request, res: Response) => {
     try {
-        const result = await orm.post(req.originalUrl, req.body);
+        const result = await orm.post(req.originalUrl, req.body, req);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);

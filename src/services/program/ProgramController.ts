@@ -15,7 +15,7 @@ import * as orm from "../../ormapis/requests";
 
 export const getProgramOwners = async (req: Request, res: Response) => {
     try {        
-        const result = await orm.get(req.originalUrl);
+        const result = await orm.get(req.originalUrl, req);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
@@ -34,7 +34,7 @@ export const getProgramOwners = async (req: Request, res: Response) => {
 
 export const getProgramVersions = async (req: Request, res: Response) => {
     try {
-        const result = await orm.get(req.originalUrl);
+        const result = await orm.get(req.originalUrl, req);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
@@ -50,7 +50,7 @@ export const getProgramVersions = async (req: Request, res: Response) => {
 
 export const getProgramInputPrompts = async (req: Request, res: Response) => {
     try {
-        const result = await orm.get(req.originalUrl);
+        const result = await orm.get(req.originalUrl, req);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
@@ -66,7 +66,7 @@ export const getProgramInputPrompts = async (req: Request, res: Response) => {
 
 export const getProgramOutputPrompts = async (req: Request, res: Response) => {
     try {
-        const result = await orm.get(req.originalUrl);
+        const result = await orm.get(req.originalUrl, req);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
@@ -82,7 +82,7 @@ export const getProgramOutputPrompts = async (req: Request, res: Response) => {
 
 export const getProgramOutputParameters = async (req: Request, res: Response) => {
     try {
-        const result = await orm.get(req.originalUrl);
+        const result = await orm.get(req.originalUrl, req);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
@@ -98,7 +98,7 @@ export const getProgramOutputParameters = async (req: Request, res: Response) =>
 
 export const getProgramFileType = async (req: Request, res: Response) => {
     try {
-        const result = await orm.get(req.originalUrl);
+        const result = await orm.get(req.originalUrl, req);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
@@ -115,7 +115,7 @@ export const getProgramFileType = async (req: Request, res: Response) => {
  */
 export const getProgramTypesTree = async (req: Request, res: Response) => {
     try {
-        const result = await orm.get(req.originalUrl);
+        const result = await orm.get(req.originalUrl, req);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);

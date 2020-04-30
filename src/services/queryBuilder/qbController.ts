@@ -8,7 +8,7 @@ import * as fs from 'fs';
 
 export const getQueryBuilder = async (req: Request, res: Response) => {
     try {
-        const result = await orm.get(req.originalUrl);
+        const result = await orm.get(req.originalUrl, req);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
@@ -18,7 +18,7 @@ export const getQueryBuilder = async (req: Request, res: Response) => {
 
 export const saveQueryBuilder = async (req: Request, res: Response) => {
     try {
-        const result = await orm.post(req.originalUrl, req.body);
+        const result = await orm.post(req.originalUrl, req.body, req);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
@@ -29,7 +29,7 @@ export const saveQueryBuilder = async (req: Request, res: Response) => {
 export const getHadoopMetaData = async (req: Request, res: Response) => {
 
     try {
-        const result = await orm.get(req.originalUrl);
+        const result = await orm.get(req.originalUrl, req);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
@@ -39,7 +39,7 @@ export const getHadoopMetaData = async (req: Request, res: Response) => {
 
 export const getHadoopTableType = async (req: Request, res: Response) => {
     try {
-        const result = await orm.get(req.originalUrl);
+        const result = await orm.get(req.originalUrl, req);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
@@ -49,7 +49,7 @@ export const getHadoopTableType = async (req: Request, res: Response) => {
 
 export const getFailDesc = async (req: Request, res: Response) => {
     try {
-        const result = await orm.get(req.originalUrl);
+        const result = await orm.get(req.originalUrl, req);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
@@ -59,7 +59,7 @@ export const getFailDesc = async (req: Request, res: Response) => {
 
 export const getXML = async (req: Request, res: Response) => {
     try {
-        const result = await orm.get(req.originalUrl);
+        const result = await orm.get(req.originalUrl, req);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
@@ -69,7 +69,7 @@ export const getXML = async (req: Request, res: Response) => {
 
 export const getColumns = async (req: Request, res: Response) => {
     try {
-        const result = await orm.post(req.originalUrl,req.body);
+        const result = await orm.post(req.originalUrl, req.body, req);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
@@ -79,7 +79,7 @@ export const getColumns = async (req: Request, res: Response) => {
 
 export const getDistinctValues = async (req: Request, res: Response) => {
     try {
-        const result = await orm.post(req.originalUrl, req.body);
+        const result = await orm.post(req.originalUrl, req.body, req);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
@@ -89,7 +89,7 @@ export const getDistinctValues = async (req: Request, res: Response) => {
 
 export const getHadoopColumn = async (req: Request, res: Response) => {
     try {
-        const result = await orm.get(req.originalUrl);
+        const result = await orm.get(req.originalUrl, req);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
@@ -99,7 +99,7 @@ export const getHadoopColumn = async (req: Request, res: Response) => {
 
 export const getTableColumnInfo = async (req: Request, res: Response) => {
     try {
-        const result = await orm.get(req.originalUrl);
+        const result = await orm.get(req.originalUrl, req);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
@@ -109,7 +109,7 @@ export const getTableColumnInfo = async (req: Request, res: Response) => {
 
 export const getTableObjectInfo = async (req: Request, res: Response) => {
     try {
-        const result = await orm.post(req.originalUrl, req.body);
+        const result = await orm.post(req.originalUrl, req.body, req);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
@@ -119,7 +119,7 @@ export const getTableObjectInfo = async (req: Request, res: Response) => {
 
 export const getTableData = async (req: Request, res: Response) => {
     try {
-        const result = await orm.get(req.originalUrl);
+        const result = await orm.get(req.originalUrl, req);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
@@ -129,7 +129,7 @@ export const getTableData = async (req: Request, res: Response) => {
 
 export const getHadoopTablesColumns = async (req: Request, res: Response) => {
     try {
-        const result = await orm.get(req.originalUrl);
+        const result = await orm.get(req.originalUrl, req);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
@@ -139,7 +139,7 @@ export const getHadoopTablesColumns = async (req: Request, res: Response) => {
 
 export const getAppendedColumns = async (req: Request, res: Response) => {
     try {
-        const result = await orm.get(req.originalUrl);
+        const result = await orm.get(req.originalUrl, req);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
@@ -149,7 +149,7 @@ export const getAppendedColumns = async (req: Request, res: Response) => {
 
 export const getProgramOrderId = async (req: Request, res: Response) => {
     try {
-        const result = await orm.get(req.originalUrl);
+        const result = await orm.get(req.originalUrl, req);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
@@ -159,7 +159,7 @@ export const getProgramOrderId = async (req: Request, res: Response) => {
 
 export const getPrimaryKeys = async (req: Request, res: Response) => {
     try {
-        const result = await orm.get(req.originalUrl);
+        const result = await orm.get(req.originalUrl, req);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
@@ -169,7 +169,7 @@ export const getPrimaryKeys = async (req: Request, res: Response) => {
 
 export const getHadoopSchema = async (req: Request, res: Response) => {
     try {
-        const result = await orm.get(req.originalUrl);
+        const result = await orm.get(req.originalUrl, req);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
@@ -179,7 +179,7 @@ export const getHadoopSchema = async (req: Request, res: Response) => {
 
 export const getHadoopTableData = async (req: Request, res: Response) => {
     try {
-        const result = await orm.get(req.originalUrl);
+        const result = await orm.get(req.originalUrl, req);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);
@@ -189,7 +189,7 @@ export const getHadoopTableData = async (req: Request, res: Response) => {
 
 export const getEmployees = async (req: Request, res: Response) => {
     try {
-        const result = await orm.post(req.originalUrl, req.body);
+        const result = await orm.post(req.originalUrl, req.body, req);
         return res.status(OK).json(result);
     } catch (err) {
         logger.error(err.message, err);

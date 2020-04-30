@@ -12,10 +12,11 @@ import { BASEURL } from '../LoadEnv';
  * @method: POST
  */
 
-export const post = async (endpoint: string, body: object) => {
+export const post = async (endpoint: string, body: object,req?:any) => {
     let options = {
         uri: `${BASEURL}${endpoint}`,
         body: body,
+        headers:req.headers,
         json: true // Automatically stringifies the body to JSON
     };
 
@@ -33,10 +34,11 @@ export const post = async (endpoint: string, body: object) => {
  * @method: PUT
  */
 
-export const put = async (endpoint: string, body: object) => {
+export const put = async (endpoint: string, body: object,req?:any) => {
     let options = {
         uri: `${BASEURL}${endpoint}`,
         body: body,
+        headers:req.headers,
         json: true // Automatically stringifies the body to JSON
     };
 
@@ -54,9 +56,10 @@ export const put = async (endpoint: string, body: object) => {
  * @method: GET
  */
 
-export const get = async (endpoint: string) => {
+export const get = async (endpoint: string,req?:any) => {
     let options = {
         uri: `${BASEURL}${endpoint}`,
+        headers:req.headers,
         json: true // Automatically stringifies the body to JSON
     };
     let res = await orm.get(options).catch(function (err: any) {
@@ -73,10 +76,11 @@ export const get = async (endpoint: string) => {
  * @method: delete
  */
 
-export const remove = async (endpoint: string, body?:any) => {
+export const remove = async (endpoint: string, body?:any, req?:any) => {
     let options = {
         uri: `${BASEURL}${endpoint}`,
         body: body,
+        headers:req.headers,
         json: true // Automatically stringifies the body to JSON
     };
 
