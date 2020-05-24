@@ -1,12 +1,12 @@
 #Dockerfile for workflow builder api
 FROM node:12.16.2-stretch-slim
-
-COPY / /express-cfe-api
-
-RUN yarn install
-
-WORKDIR /express-cfe-api
-
-Expose 7006
-
-CMD [ "yarn", "run", "start:dev"]
+ 
+COPY /dist /app/dist
+COPY /env /app/env
+COPY /package.json /app/package.json
+ 
+WORKDIR /app
+ 
+RUN npm i --only=prod
+ 
+CMD [ "npm", "start" ]
