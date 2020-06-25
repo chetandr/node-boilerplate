@@ -1,30 +1,62 @@
 stages:
-    - build
-    - package
+  - build
+  - package
   
 npm-build:
-    stage: build
-    script:
-      - mkdir env
-      - chmod -R 755 env
-      - echo PORT=$CI_WFB_API_PORT > ./env/production.env
-      - echo ORM_BASEURL=$CI_ORM_IP:$CI_ORM_PORT  >> ./env/production.env
-      - npm i
-      - npm run build
-    only:
-      - merge_requests
+  stage: build
+  script:
+    - mkdir env
+    - chmod -R 755 env
+    - echo PORT=$CI_WFB_API_PORT > ./env/production.env
+    - echo ORM_BASEURL=$CI_ORM_IP:$CI_ORM_PORT  >> ./env/production.env
+    - npm i
+    - npm run build
+  only:
+  - merge_requests
 dockerize:
-    stage: package
-    script:
-      - mkdir env
-      - chmod -R 755 env
-      - echo PORT=$CI_WFB_API_PORT > ./env/production.env
-      - echo ORM_BASEURL=$CI_ORM_IP:$CI_ORM_PORT  >> ./env/production.env
-      - yarn install
-      - npm run build
-      - docker build -t wfbapi:latest .
-      - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
-      - docker tag wfbapi:latest seagit.okla.seagate.com:4567/seagate-osa-rewrite/express-cfe-api:latest
-      - docker push seagit.okla.seagate.com:4567/seagate-osa-rewrite/express-cfe-api:latest
-    only:
-      - master
+  stage: package
+  script:
+    - mkdir env
+    - chmod -R 755 env
+    - echo PORT=$CI_WFB_API_PORT > ./env/production.env
+    - echo ORM_BASEURL=$CI_ORM_IP:$CI_ORM_PORT  >> ./env/production.env
+    - yarn install
+    - npm run build
+    - docker build -t wfbapi:latest .
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker tag wfbapi:latest seagit.okla.seagate.com:4567/seagate-osa-rewrite/express-cfe-api:latest
+    - docker push seagit.okla.seagate.com:4567/seagate-osa-rewrite/express-cfe-api:latest
+  only:
+  - master
+
+dockerize_SIT:
+  stage: package
+  script:
+    - mkdir env
+    - chmod -R 755 env
+    - echo PORT=$CI_WFB_API_PORT > ./env/production.env
+    - echo ORM_BASEURL=$CI_ORM_IP:$CI_ORM_PORT  >> ./env/production.env
+    - yarn install
+    - npm run build
+    - docker build -t wfbapi:sit .
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker tag wfbapi:sit seagit.okla.seagate.com:4567/seagate-osa-rewrite/express-cfe-api:sit
+    - docker push seagit.okla.seagate.com:4567/seagate-osa-rewrite/express-cfe-api:sit
+  only:
+  - sit
+
+dockerize_FT:
+  stage: package
+  script:
+    - mkdir env
+    - chmod -R 755 env
+    - echo PORT=$CI_WFB_API_PORT > ./env/production.env
+    - echo ORM_BASEURL=$CI_ORM_IP:$CI_ORM_PORT  >> ./env/production.env
+    - yarn install
+    - npm run build
+    - docker build -t wfbapi:ft .
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker tag wfbapi:ft seagit.okla.seagate.com:4567/seagate-osa-rewrite/express-cfe-api:ft
+    - docker push seagit.okla.seagate.com:4567/seagate-osa-rewrite/express-cfe-api:ft
+  only:
+  - ft
